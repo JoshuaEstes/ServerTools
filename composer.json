@@ -10,7 +10,6 @@
         "symfony/process": "*",
         "symfony/finder": "*",
         "symfony/filesystem": "*",
-        "symfony/event-dispatcher": "*",
         "JoshuaEstes/stHelloWorld": "*"
     }
 }
