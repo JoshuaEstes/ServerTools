@@ -7,7 +7,7 @@
       },
       {
         "type": "git",
-        "url": "git@agencydev.iostudiohq.com:stPlesk.git"
+        "url": "git@git.iostudiohq.com:stPlesk.git"
       }
     ],
     "require": {

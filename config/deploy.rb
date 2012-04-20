@@ -9,7 +9,7 @@ set :deploy_via,    :copy
 set :copy_strategy, :export
 set :use_sudo,      false
 set :keep_releases, 2
-
+set :user, 'root'
 
 desc "Composer Goodness"
 namespace :composer do
