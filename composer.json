@@ -1,11 +1,16 @@
 {
     "name": "ScenicCityLabs/ServerTools",
+    "repositories": [{
+        "type": "git",
+        "url": "git://github.com/JoshuaEstes/stHelloWorld.git"
+    }],
     "require": {
         "php": ">=5.3.2",
         "symfony/console": "*",
         "symfony/process": "*",
         "symfony/finder": "*",
         "symfony/filesystem": "*",
-        "symfony/event-dispatcher": "*"
+        "symfony/event-dispatcher": "*",
+        "JoshuaEstes/stHelloWorld": "*"
     }
 }

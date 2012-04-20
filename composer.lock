@@ -1,6 +1,11 @@
 {
-    "hash": "d52fe2bbf5bcc6261ba3f35bb35205b8",
+    "hash": "feee9d62501ba1ae431db6ca019348e0",
     "packages": [
+        {
+            "package": "JoshuaEstes/stHelloWorld",
+            "version": "dev-master",
+            "source-reference": "af754cab99579453753dd811dfa46f6d67f5f0a0"
+        },
         {
             "package": "symfony/console",
             "version": "dev-master",
