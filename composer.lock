@@ -1,0 +1,32 @@
+{
+    "hash": "d52fe2bbf5bcc6261ba3f35bb35205b8",
+    "packages": [
+        {
+            "package": "symfony/console",
+            "version": "dev-master",
+            "source-reference": "8e3c42aa976f18a9bfcb0694553e5f99def3309c"
+        },
+        {
+            "package": "symfony/event-dispatcher",
+            "version": "dev-master",
+            "source-reference": "07e1d0174f3a0ec36bbe04b3850270df7a86271d"
+        },
+        {
+            "package": "symfony/filesystem",
+            "version": "dev-master",
+            "source-reference": "f475e8299ff7bffbbd858bef85d3c80036f13877"
+        },
+        {
+            "package": "symfony/finder",
+            "version": "dev-master",
+            "source-reference": "57ec7198a70e6c40e450ba66cc2f8ecab98746c8"
+        },
+        {
+            "package": "symfony/process",
+            "version": "dev-master",
+            "source-reference": "2e4da8c8076744bafed97451bb1574c96cda0e68"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": []
+}
