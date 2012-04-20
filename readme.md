@@ -14,9 +14,14 @@ Installation
     cd ServerTools
     curl -s http://getcomposer.org/installer | php
     ./composer.phar install
-    chmod +x server-tool
-    ./server-tool
-    sudo ln -s /path/to/server-tool /sbin/server-tool
+    chmod +x st
+    ./st
+    sudo ln -s /path/to/st /sbin/st
+
+If you want to allow all users on your system to use this, then symlink
+this to /usr/bin directoy
+
+    sudo ln -s /path/to/st /usr/bin/st
 
 Adding more tasks/tools
 -----------------------
