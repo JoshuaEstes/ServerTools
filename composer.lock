@@ -19,7 +19,7 @@
         {
             "package": "JoshuaEstes/stPlesk",
             "version": "dev-master",
-            "source-reference": "8a21d86c6533448573fa74ea71cd95d66f914a99"
+            "source-reference": "50649404691b47b87d0bfdafa5afd4c781fa0c65"
         },
         {
             "package": "symfony/console",
