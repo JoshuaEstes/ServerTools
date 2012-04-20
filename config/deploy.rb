@@ -1,5 +1,6 @@
 set :application,   "ioTools" 
 set :scm,         :git
+set :branch,      'master'
 #set :scm,           :file
 #set :git_enable_submodules,  1
 #set :repository,  "git@bitbucket.org:iostudio/iotools.git"
@@ -9,7 +10,8 @@ set :deploy_via,    :copy
 set :copy_strategy, :export
 set :use_sudo,      false
 set :keep_releases, 2
-set :user, 'root'
+
+ssh_options[:forward_agent] = true
 
 desc "Composer Goodness"
 namespace :composer do

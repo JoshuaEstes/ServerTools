@@ -1,6 +1,11 @@
 {
-    "hash": "67791ad0720d830c70f456d02615a258",
+    "hash": "dca0605c5346c620e2da77b818d124de",
     "packages": [
+        {
+            "package": "JoshuaEstes/ServerTools",
+            "version": "dev-master",
+            "source-reference": "ae7a48b893475729fdb28f8c70d4b375da83b716"
+        },
         {
             "package": "JoshuaEstes/stEtc",
             "version": "dev-master",
@@ -12,24 +17,29 @@
             "source-reference": "b96ea8ac9e579254cf7faf49f79a76e51b00296c"
         },
         {
+            "package": "JoshuaEstes/stPlesk",
+            "version": "dev-master",
+            "source-reference": "8a21d86c6533448573fa74ea71cd95d66f914a99"
+        },
+        {
             "package": "symfony/console",
             "version": "dev-master",
-            "source-reference": "8e3c42aa976f18a9bfcb0694553e5f99def3309c"
+            "source-reference": "f354e1e5d59261ae03c0fc768bfa4043c0e6ab9c"
         },
         {
             "package": "symfony/filesystem",
             "version": "dev-master",
-            "source-reference": "f475e8299ff7bffbbd858bef85d3c80036f13877"
+            "source-reference": "f5a2dcc6621c9dba4390195697f941db294813fd"
         },
         {
             "package": "symfony/finder",
             "version": "dev-master",
-            "source-reference": "57ec7198a70e6c40e450ba66cc2f8ecab98746c8"
+            "source-reference": "6a0f850cac8cac7a0b33f48d3d3d1514d7ed56f8"
         },
         {
             "package": "symfony/process",
             "version": "dev-master",
-            "source-reference": "2e4da8c8076744bafed97451bb1574c96cda0e68"
+            "source-reference": "9f49693318e1f7824a276da6c6556ff06cd3f25a"
         }
     ],
     "packages-dev": null,
