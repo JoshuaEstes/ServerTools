@@ -1,10 +1,15 @@
 {
-    "hash": "feee9d62501ba1ae431db6ca019348e0",
+    "hash": "89a94f31030638f4306cfb433724a242",
     "packages": [
+        {
+            "package": "JoshuaEstes/stEtc",
+            "version": "dev-master",
+            "source-reference": "9739a3a9f19b510257a757d7a89ba61cabbd56a6"
+        },
         {
             "package": "JoshuaEstes/stHelloWorld",
             "version": "dev-master",
-            "source-reference": "d32251bb74ba549d978a9abbe894a18a52109e8e"
+            "source-reference": "b96ea8ac9e579254cf7faf49f79a76e51b00296c"
         },
         {
             "package": "symfony/console",
