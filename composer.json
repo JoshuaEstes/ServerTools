@@ -3,11 +3,11 @@
     "repositories": [
       {
         "type": "git",
-        "url": "git://github.com/JoshuaEstes/stHelloWorld.git"
+        "url": "git://github.com/JoshuaEstes/stEtc.git"
       },
       {
         "type": "git",
-        "url": "git://github.com/JoshuaEstes/stEtc.git"
+        "url": "git@git.iostudiohq.com:stPlesk.git"
       }
     ],
     "require": {
@@ -17,6 +17,6 @@
         "symfony/finder": "*",
         "symfony/filesystem": "*",
         "JoshuaEstes/stEtc": "*",
-        "JoshuaEstes/stHelloWorld": "*"
+        "JoshuaEstes/stPlesk": "*"
     }
 }
