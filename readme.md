@@ -9,13 +9,13 @@ The list can go on and on.
 Installation
 ------------
 
-  cd ~
-  git clone git://github.com/JoshuaEstes/ServerTools.git
-  cd ServerTools
-  curl -s http://getcomposer.org/installer | php
-  ./composer.phar install
-  chmod +x server-tool
-  ./server-tool
-  sudo ln -s /path/to/server-tool /sbin/server-tool
+    cd ~
+    git clone git://github.com/JoshuaEstes/ServerTools.git
+    cd ServerTools
+    curl -s http://getcomposer.org/installer | php
+    ./composer.phar install
+    chmod +x server-tool
+    ./server-tool
+    sudo ln -s /path/to/server-tool /sbin/server-tool
 
 
