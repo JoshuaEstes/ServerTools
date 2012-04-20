@@ -7,29 +7,24 @@
             "source-reference": "d475f91ea682612dcb25e3563ee9f34c24cf2a15"
         },
         {
-            "package": "JoshuaEstes/stHelloWorld",
-            "version": "dev-master",
-            "source-reference": "b96ea8ac9e579254cf7faf49f79a76e51b00296c"
-        },
-        {
             "package": "symfony/console",
             "version": "dev-master",
-            "source-reference": "8e3c42aa976f18a9bfcb0694553e5f99def3309c"
+            "source-reference": "f354e1e5d59261ae03c0fc768bfa4043c0e6ab9c"
         },
         {
             "package": "symfony/filesystem",
             "version": "dev-master",
-            "source-reference": "f475e8299ff7bffbbd858bef85d3c80036f13877"
+            "source-reference": "f5a2dcc6621c9dba4390195697f941db294813fd"
         },
         {
             "package": "symfony/finder",
             "version": "dev-master",
-            "source-reference": "57ec7198a70e6c40e450ba66cc2f8ecab98746c8"
+            "source-reference": "6a0f850cac8cac7a0b33f48d3d3d1514d7ed56f8"
         },
         {
             "package": "symfony/process",
             "version": "dev-master",
-            "source-reference": "2e4da8c8076744bafed97451bb1574c96cda0e68"
+            "source-reference": "9f49693318e1f7824a276da6c6556ff06cd3f25a"
         }
     ],
     "packages-dev": null,
