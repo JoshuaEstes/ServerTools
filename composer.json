@@ -1,14 +1,14 @@
 {
     "name": "JoshuaEstes/ServerTools",
     "description": "Collection of command line tools to help with server management and maintenance",
-    "repositories": [
+    "version": "0.1.0",
+    "keywords": ["server", "management", "maintenance", "apache2"],
+    "homepage": "https://github.com/JoshuaEstes/ServerTools",
+    "license": "MIT",
+    "authors": [
       {
-        "type": "git",
-        "url": "git://github.com/JoshuaEstes/stHelloWorld.git"
-      },
-      {
-        "type": "git",
-        "url": "git://github.com/JoshuaEstes/stEtc.git"
+        "name": "Joshua Estes",
+        "email": "Joshua.Estes@ScenicCityLabs.com"
       }
     ],
     "require": {
