@@ -16,6 +16,7 @@
         "symfony/process": "*",
         "symfony/finder": "*",
         "symfony/filesystem": "*",
-        "JoshuaEstes/stEtc": "*"
+        "JoshuaEstes/stEtc": "*",
+        "JoshuaEstes/stApache": "*"
     }
 }

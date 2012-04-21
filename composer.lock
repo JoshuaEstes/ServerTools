@@ -1,6 +1,16 @@
 {
-    "hash": "67791ad0720d830c70f456d02615a258",
+    "hash": "d1f1447af21a72ab6f3923b8b253998b",
     "packages": [
+        {
+            "package": "JoshuaEstes/ServerTools",
+            "version": "dev-master",
+            "source-reference": "d50da84727c9ca34322d499ad22b4ba17d385459"
+        },
+        {
+            "package": "JoshuaEstes/stApache",
+            "version": "dev-master",
+            "source-reference": "55876c8fdc26ba5a578fa948932cd12df23f3889"
+        },
         {
             "package": "JoshuaEstes/stEtc",
             "version": "dev-master",
@@ -10,6 +20,11 @@
             "package": "symfony/console",
             "version": "dev-master",
             "source-reference": "f354e1e5d59261ae03c0fc768bfa4043c0e6ab9c"
+        },
+        {
+            "package": "symfony/event-dispatcher",
+            "version": "dev-master",
+            "source-reference": "b98d68d3b8513c62d35504570f09e9d3dc33d083"
         },
         {
             "package": "symfony/filesystem",
