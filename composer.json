@@ -13,11 +13,11 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "symfony/console": "*",
-        "symfony/process": "*",
-        "symfony/finder": "*",
-        "symfony/filesystem": "*",
-        "JoshuaEstes/stEtc": "*",
-        "JoshuaEstes/stApache": "*"
+        "symfony/console": "2.0.*",
+        "symfony/process": "2.0.*",
+        "symfony/finder": "2.0.*",
+        "symfony/filesystem": "2.1.*",
+        "JoshuaEstes/stEtc": "master",
+        "JoshuaEstes/stApache": "master"
     }
 }
