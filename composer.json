@@ -1,5 +1,6 @@
 {
     "name": "JoshuaEstes/ServerTools",
+    "description": "Collection of command line tools to help with server management and maintenance",
     "repositories": [
       {
         "type": "git",
