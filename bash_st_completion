@@ -1,0 +1,7 @@
+export COMP_WORDBREAKS=${COMP_WORDBREAKS/\:/}
+_server_tools()
+{
+  COMPREPLY=($(compgen -W "`$(which st) list --raw 2>/dev/null | awk '{{print $1}}'`" -- ${COMP_WORDS[COMP_CWORD]}))
+  return 0
+}
+complete -o default -o nospace -F _server_tools st
