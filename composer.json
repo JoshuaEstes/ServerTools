@@ -18,12 +18,12 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "JoshuaEstes/stPlesk": "master",
-        "symfony/console": "2.0.*",
-        "symfony/process": "2.0.*",
-        "symfony/finder": "2.0.*",
-        "symfony/filesystem": "2.1.*",
+        "symfony/console": "master",
+        "symfony/process": "master",
+        "symfony/finder": "master",
+        "symfony/filesystem": "master",
         "JoshuaEstes/stEtc": "master",
+        "JoshuaEstes/stPlesk": "master",
         "JoshuaEstes/stApache": "master"
     }
 }

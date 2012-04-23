@@ -1,11 +1,6 @@
 {
-    "hash": "84ecd239134fa4d64f7fa557a680f54f",
+    "hash": "af80a0131afb3d3bc4eb6a420ad3f3ea",
     "packages": [
-        {
-            "package": "JoshuaEstes/ServerTools",
-            "version": "dev-master",
-            "source-reference": "fb49103e2953149ba4663c67c43969e45216fcad"
-        },
         {
             "package": "JoshuaEstes/stApache",
             "version": "dev-master",
@@ -17,35 +12,29 @@
             "source-reference": "d475f91ea682612dcb25e3563ee9f34c24cf2a15"
         },
         {
-            "package": "JoshuaEstes/stHelloWorld",
-            "version": "dev-master",
-            "source-reference": "b96ea8ac9e579254cf7faf49f79a76e51b00296c"
-        },
-        {
             "package": "JoshuaEstes/stPlesk",
             "version": "dev-master",
-            "source-reference": "e9e46759d37316538a1dffa80969174faa4fcda8"
+            "source-reference": "8207c944a4254d01962ba34ddd45fbe6b4140b19"
         },
         {
             "package": "symfony/console",
-            "version": "2.0.x-dev",
-            "source-reference": "b8b23721c41af153ab2506ddae9d89440ec6a538"
+            "version": "dev-master",
+            "source-reference": "f354e1e5d59261ae03c0fc768bfa4043c0e6ab9c"
         },
         {
             "package": "symfony/filesystem",
             "version": "dev-master",
-            "source-reference": "f5a2dcc6621c9dba4390195697f941db294813fd",
-            "alias": "2.1.9999999.9999999-dev"
+            "source-reference": "f5a2dcc6621c9dba4390195697f941db294813fd"
         },
         {
             "package": "symfony/finder",
-            "version": "2.0.x-dev",
-            "source-reference": "42e22b1a62010e2a78088c3929d9d0034751bfb8"
+            "version": "dev-master",
+            "source-reference": "6a0f850cac8cac7a0b33f48d3d3d1514d7ed56f8"
         },
         {
             "package": "symfony/process",
-            "version": "2.0.x-dev",
-            "source-reference": "v2.0.12"
+            "version": "dev-master",
+            "source-reference": "9f49693318e1f7824a276da6c6556ff06cd3f25a"
         }
     ],
     "packages-dev": null,
