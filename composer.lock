@@ -1,0 +1,53 @@
+{
+    "hash": "84ecd239134fa4d64f7fa557a680f54f",
+    "packages": [
+        {
+            "package": "JoshuaEstes/ServerTools",
+            "version": "dev-master",
+            "source-reference": "fb49103e2953149ba4663c67c43969e45216fcad"
+        },
+        {
+            "package": "JoshuaEstes/stApache",
+            "version": "dev-master",
+            "source-reference": "55876c8fdc26ba5a578fa948932cd12df23f3889"
+        },
+        {
+            "package": "JoshuaEstes/stEtc",
+            "version": "dev-master",
+            "source-reference": "d475f91ea682612dcb25e3563ee9f34c24cf2a15"
+        },
+        {
+            "package": "JoshuaEstes/stHelloWorld",
+            "version": "dev-master",
+            "source-reference": "b96ea8ac9e579254cf7faf49f79a76e51b00296c"
+        },
+        {
+            "package": "JoshuaEstes/stPlesk",
+            "version": "dev-master",
+            "source-reference": "50649404691b47b87d0bfdafa5afd4c781fa0c65"
+        },
+        {
+            "package": "symfony/console",
+            "version": "2.0.x-dev",
+            "source-reference": "b8b23721c41af153ab2506ddae9d89440ec6a538"
+        },
+        {
+            "package": "symfony/filesystem",
+            "version": "dev-master",
+            "source-reference": "f5a2dcc6621c9dba4390195697f941db294813fd",
+            "alias": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/finder",
+            "version": "2.0.x-dev",
+            "source-reference": "42e22b1a62010e2a78088c3929d9d0034751bfb8"
+        },
+        {
+            "package": "symfony/process",
+            "version": "2.0.x-dev",
+            "source-reference": "v2.0.12"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": []
+}
