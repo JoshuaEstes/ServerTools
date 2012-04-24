@@ -13,11 +13,14 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "symfony/console": "2.0.*",
-        "symfony/process": "2.0.*",
-        "symfony/finder": "2.0.*",
-        "symfony/filesystem": "2.1.*",
+        "symfony/console": ">=2.0.0",
+        "symfony/process": ">=2.0.0",
+        "symfony/finder": ">=2.1.0",
+        "symfony/filesystem": ">=2.1.0",
         "JoshuaEstes/stEtc": "master",
         "JoshuaEstes/stApache": "master"
+    },
+    "autoload": {
+      "psr-0": { "Sf2": ["src/"] }
     }
 }

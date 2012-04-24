@@ -1,36 +1,35 @@
 {
-    "hash": "41124ed3de2706eb279960876b3d6850",
+    "hash": "8188249e08f334c8123ea392fd121d95",
     "packages": [
         {
             "package": "JoshuaEstes/stApache",
             "version": "dev-master",
-            "source-reference": "55876c8fdc26ba5a578fa948932cd12df23f3889"
+            "source-reference": "fe1ee459eb3cdb2a6a2759bfc9b95a16bcef2de8"
         },
         {
             "package": "JoshuaEstes/stEtc",
             "version": "dev-master",
-            "source-reference": "d475f91ea682612dcb25e3563ee9f34c24cf2a15"
+            "source-reference": "607a6d70d79019115a8bc58c5a507dccc8e9306a"
         },
         {
             "package": "symfony/console",
-            "version": "2.0.x-dev",
-            "source-reference": "b8b23721c41af153ab2506ddae9d89440ec6a538"
+            "version": "dev-master",
+            "source-reference": "f354e1e5d59261ae03c0fc768bfa4043c0e6ab9c"
         },
         {
             "package": "symfony/filesystem",
             "version": "dev-master",
-            "source-reference": "f5a2dcc6621c9dba4390195697f941db294813fd",
-            "alias": "2.1.9999999.9999999-dev"
+            "source-reference": "f5a2dcc6621c9dba4390195697f941db294813fd"
         },
         {
             "package": "symfony/finder",
-            "version": "2.0.x-dev",
-            "source-reference": "42e22b1a62010e2a78088c3929d9d0034751bfb8"
+            "version": "dev-master",
+            "source-reference": "5b8658e52eaf424fe943a5857e2404ce95c3b90e"
         },
         {
             "package": "symfony/process",
-            "version": "2.0.x-dev",
-            "source-reference": "v2.0.12"
+            "version": "dev-master",
+            "source-reference": "9f49693318e1f7824a276da6c6556ff06cd3f25a"
         }
     ],
     "packages-dev": null,

@@ -10,7 +10,7 @@ $finder = new Finder();
 $iterator = $finder
         ->files()
         ->name('*Command.php')
-        ->in(__DIR__ . '/vendor')
+        ->in(array(__DIR__ . '/src', __DIR__ . '/vendor'))
         ->exclude('symfony');
 
 $commands = array();
