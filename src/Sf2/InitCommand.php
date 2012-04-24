@@ -19,38 +19,19 @@ class InitCommand extends Command {
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
-        $version = $input->getArgument('version');
-        $filename = sprintf('Symfony_Standard_%s.tgz',$version);
-        $output->writeln('Waiting for 2.1 to com out before setting this up =\ ');
-//        $process = new Process(sprintf('wget http://symfony.com/get/%s',$filename));
-//        $process->run(function($type, $buffer) use($output) {
-//                $output->write($buffer);
-//            }
-//        );
-//
-//        $process = new Process(sprintf('tar -zxvf %s',$filename));
-//        $process->run(function($type, $buffer) use($output) {
-//                $output->write($buffer);
-//            }
-//        );
-//
-//        $process = new Process(sprintf('rm %s',$filename));
-//        $process->run(function($type, $buffer) use($output) {
-//                $output->write($buffer);
-//            }
-//        );
-//
-//        $process = new Process('cp -R Symfony/ ./');
-//        $process->run(function($type, $buffer) use($output) {
-//                $output->write($buffer);
-//            }
-//        );
-//
-//        $process = new Process('curl -s http://getcomposer.org/installer | php && php composer.phar install');
-//        $process->run(function($type, $buffer) use($output) {
-//                $output->write($buffer);
-//            }
-//        );
+        if (!$this->getDialog()->askConfirmation($output,'<question>This will download the latest version of symfony2, Do you want to continue? (default: no)</question> ', false)){
+            $output->writeln('aborted');
+        }
+        $batchProcesses = array(
+          new Process('git clone http://github.com/symfony/symfony-standard.git .'),
+          new Process('rm -rf .git/'),
+          new Process('curl -s http://getcomposer.org/installer | php'),
+          new Process('chmod +x composer.phar; ./composer.phar install'),
+          new Process('php app/check.php'),
+        );
+        foreach ($batchProcesses as $process) {
+            $process->run(function($type, $buffer) use($output) {$output->write($buffer);});
+        }
     }
 
     /**
