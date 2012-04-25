@@ -16,30 +16,52 @@ class InitCommand extends Command {
     protected function configure() {
         $this
             ->setName('sf2:init')
-            ->setDescription('download and install symfony 2 in the current directory.')
-            ->addArgument('version',InputArgument::OPTIONAL, 'symfony 2 version', '2.1.*');
+            ->setDescription('download and install symfony 2 in the current directory.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
+        // Want to make sure we really want to run this stuff
         if (!$this->getDialog()->askConfirmation($output,'<question>This will download the latest version of symfony2, Do you want to continue? (default: no)</question> ', false)){
             $output->writeln('aborted');
         }
         $batchProcesses = array(
+          // Clone the symfony standard repo. This is bleeding edge =)
+          // @todo in the future can checkout the version of symfony we want then
+          //       then delete the git directory and ignore file
+          // @todo What if user does not have git installed?
           new Process('git clone http://github.com/symfony/symfony-standard.git .'),
+          // We won't need this any more
           new Process('rm -rf .git/ .gitignore'),
+          // Download a new gitignore file
+          new Process('curl -s https://raw.github.com/github/gitignore/master/Symfony2.gitignore -o .gitignore'),
+          // These will replace the commented out umask with an uncomment umask line
+          new Process('cp app/console app/console.bak; sed -e "s/\/\/umask/umask/g" app/console.bak > app/console'),
+          new Process('cp web/app.php wep/app.php.bak; sed -e "s/\/\/umask/umask/g" web/app.php.bak > web/app.php'),
+          new Process('cp web/app_dev.php wep/app_dev.php.bak; sed -e "s/\/\/umask/umask/g" web/app_dev.php.bak > web/app_dev.php'),
+          // make sure we can write to the cache and logs directories
+          new Process('chmod -R 0777 app/cache/ app/logs'),
+          // Let's copy the parameters.yml file to a dist so we can ignore this
+          new Process('cp app/config/parameters.yml app/config/parameters.yml.dist'),
+          // download and install composer, then install all the symfony stuff
           new Process('curl -s http://getcomposer.org/installer | php'),
           new Process('chmod +x composer.phar; ./composer.phar install'),
-          new Process('php app/check.php'),
-          new Process('chmod -R 0777 app/cache/ app/logs'),
+          // Let's get rid of the Acme demo bundle
           new Process('rm -rf src/Acme/'),
           new Process(sprintf('cp %s/Templates/routing_dev.yml %s/app/config/routing_dev.yml',__DIR__,\getcwd())),
           new Process(sprintf('cp %s/Templates/AppKernel.php %s/app/AppKernel.php',__DIR__,\getcwd())),
           new Process('rm -rf web/bundles/acmedemo'),
+          // Let's see if there is anything else we should do last
+          new Process('php app/check.php'),
         );
         foreach ($batchProcesses as $process) {
             $output->writeln(sprintf('Executing Command: %s',$process->getCommandLine()));
             $process->run(function($type, $buffer) use($output) {$output->write($buffer);});
+            if (!$process->isSuccessful()){
+                $output->writeln(sprintf('<error>%s</error>',$process->getErrorOutput()));
+            }
         }
+
+        // Ask if user wants to create the parameters.yml file
         if ($this->getDialog()->askConfirmation($output,'<question>Would you like to configure parameters.yml? (default: yes)</question> ', true)){
           $parameters = Yaml::parse(sprintf("%s/app/config/parameters.yml",\getcwd()));
           $parameters['parameters']['database_driver'] = $this->getDialog()->ask($output,'<question>Database Driver? (default: pdo_mysql)</question> ','pdo_mysql');
@@ -58,10 +80,12 @@ class InitCommand extends Command {
         }
 
         // Setup a vhost because I'm too lazy to do this every time
-        if ($this->getDialog()->askConfirmation($output, '<question>Would you like to setup a vhost file?</question> ',true)){
+        if ($this->getDialog()->askConfirmation($output, '<question>Would you like to setup a vhost file? (default: yes)</question> ',true)){
           do {
             $ServerName = $this->getDialog()->ask($output,'<question>ServerName (ie: foo.local)</question> ');
           } while (!$ServerName);
+          // Since the apache vhost command to add a vhost exists, we want to use this
+          // instead of making new code
           $command = $this->getApplication()->find('apache:vhost:add');
           $arguments = array(
             'command' => 'apache:vhost:add',
