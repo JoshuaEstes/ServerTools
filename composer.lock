@@ -1,15 +1,20 @@
 {
-    "hash": "65af95447ea028cae71ec576939738a1",
+    "hash": "59c7055f8e75a3205e8a4d12de589601",
     "packages": [
         {
             "package": "JoshuaEstes/stApache",
             "version": "dev-master",
-            "source-reference": "9bd9e0dcfbe2849552d19bc87f722ffe34dde43d"
+            "source-reference": "f789bfca9ac52e42cdebfc53d54e9c9ee8c8acd9"
         },
         {
             "package": "JoshuaEstes/stEtc",
             "version": "dev-master",
             "source-reference": "607a6d70d79019115a8bc58c5a507dccc8e9306a"
+        },
+        {
+            "package": "JoshuaEstes/stPlesk",
+            "version": "dev-master",
+            "source-reference": "7ad397ccfaa1eb5ee010dd2cec0bc687d73ad9f4"
         },
         {
             "package": "symfony/console",
