@@ -1,0 +1,42 @@
+{
+    "hash": "65af95447ea028cae71ec576939738a1",
+    "packages": [
+        {
+            "package": "JoshuaEstes/stApache",
+            "version": "dev-master",
+            "source-reference": "9bd9e0dcfbe2849552d19bc87f722ffe34dde43d"
+        },
+        {
+            "package": "JoshuaEstes/stEtc",
+            "version": "dev-master",
+            "source-reference": "607a6d70d79019115a8bc58c5a507dccc8e9306a"
+        },
+        {
+            "package": "symfony/console",
+            "version": "dev-master",
+            "source-reference": "8c69d3a3e26885cad132a38ab0d7f287fb975296"
+        },
+        {
+            "package": "symfony/filesystem",
+            "version": "dev-master",
+            "source-reference": "f5a2dcc6621c9dba4390195697f941db294813fd"
+        },
+        {
+            "package": "symfony/finder",
+            "version": "dev-master",
+            "source-reference": "5b8658e52eaf424fe943a5857e2404ce95c3b90e"
+        },
+        {
+            "package": "symfony/process",
+            "version": "dev-master",
+            "source-reference": "3f95a0126588f00d70e745c1ef96631fb10c3a8e"
+        },
+        {
+            "package": "symfony/yaml",
+            "version": "dev-master",
+            "source-reference": "52807f723e8a9743852c2105f11bd01c5af7f977"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": []
+}
