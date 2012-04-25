@@ -36,8 +36,8 @@ class InitCommand extends Command {
           new Process('curl -s https://raw.github.com/github/gitignore/master/Symfony2.gitignore -o .gitignore'),
           // These will replace the commented out umask with an uncomment umask line
           new Process('cp app/console app/console.bak; sed -e "s/\/\/umask/umask/g" app/console.bak > app/console'),
-          new Process('cp web/app.php wep/app.php.bak; sed -e "s/\/\/umask/umask/g" web/app.php.bak > web/app.php'),
-          new Process('cp web/app_dev.php wep/app_dev.php.bak; sed -e "s/\/\/umask/umask/g" web/app_dev.php.bak > web/app_dev.php'),
+          new Process('cp web/app.php web/app.php.bak; sed -e "s/\/\/umask/umask/g" web/app.php.bak > web/app.php'),
+          new Process('cp web/app_dev.php web/app_dev.php.bak; sed -e "s/\/\/umask/umask/g" web/app_dev.php.bak > web/app_dev.php'),
           // make sure we can write to the cache and logs directories
           new Process('chmod -R 0777 app/cache/ app/logs'),
           // Let's copy the parameters.yml file to a dist so we can ignore this
