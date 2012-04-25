@@ -6,6 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Yaml\Yaml;
@@ -36,6 +37,7 @@ class InitCommand extends Command {
           new Process('rm -rf web/bundles/acmedemo'),
         );
         foreach ($batchProcesses as $process) {
+            $output->writeln(sprintf('Executing Command: %s',$process->getCommandLine()));
             $process->run(function($type, $buffer) use($output) {$output->write($buffer);});
         }
         if ($this->getDialog()->askConfirmation($output,'<question>Would you like to configure parameters.yml? (default: yes)</question> ', true)){
@@ -54,7 +56,21 @@ class InitCommand extends Command {
           $parameters['parameters']['secret'] = md5(uniqid(rand(),TRUE));
           \file_put_contents('app/config/parameters.yml',Yaml::dump($parameters));
         }
-        $output->writeln('Project has been setup, next your will need to update your vhost and hosts file.');
+
+        // Setup a vhost because I'm too lazy to do this every time
+        if ($this->getDialog()->askConfirmation($output, '<question>Would you like to setup a vhost file?</question> ',true)){
+          do {
+            $ServerName = $this->getDialog()->ask($output,'<question>ServerName (ie: foo.local)</question> ');
+          } while (!$ServerName);
+          $command = $this->getApplication()->find('apache:vhost:add');
+          $arguments = array(
+            'command' => 'apache:vhost:add',
+            'ServerName' => $ServerName,
+            '--DocumentRoot' => sprintf('%s/web',\getcwd()),
+            '--DirectoryIndex' => 'app.php',
+          );
+          $command->run(new ArrayInput($arguments), $output);
+        }
     }
 
     /**
