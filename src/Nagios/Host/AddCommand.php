@@ -15,41 +15,95 @@ class AddCommand extends Command {
     protected function configure() {
         $this
             ->setName('nagios:host:add')
-            ->setDescription('Create a host definition');
+            ->setDescription('Create a host definition')
+            ->addOption('hosts-cfg-path',null,InputOption::VALUE_REQUIRED,'Path to location where you want to store the hosts files','/usr/local/nagios/etc/hosts')
+            ->addOption('host_name',null,InputOption::VALUE_REQUIRED,'host_name')
+            ->addOption('alias',null,InputOption::VALUE_REQUIRED,'alias')
+            ->addOption('display_name',null,InputOption::VALUE_REQUIRED,'display_name')
+            ->addOption('address',null,InputOption::VALUE_REQUIRED,'address')
+            ->addOption('parents',null,InputOption::VALUE_REQUIRED,'host_names')
+            ->addOption('hostgroups',null,InputOption::VALUE_REQUIRED,'hostgroup_names')
+            ->addOption('check_command',null,InputOption::VALUE_REQUIRED,'command_name','check-host-alive')
+            ->addOption('initial_state',null,InputOption::VALUE_REQUIRED,'[o,d,u]')
+            ->addOption('max_check_attempts',null,InputOption::VALUE_REQUIRED,'#',10)
+            ->addOption('check_interval',null,InputOption::VALUE_REQUIRED,'#')
+            ->addOption('retry_interval',null,InputOption::VALUE_REQUIRED,'#')
+            ->addOption('active_checks_enabled',null,InputOption::VALUE_REQUIRED,'[0/1]')
+            ->addOption('passive_checks_enabled',null,InputOption::VALUE_REQUIRED,'[0/1]')
+            ->addOption('check_period',null,InputOption::VALUE_REQUIRED,'timeperiod_name','24x7')
+            ->addOption('obsess_over_host',null,InputOption::VALUE_REQUIRED,'[0/1]')
+            ->addOption('check_freshness',null,InputOption::VALUE_REQUIRED,'[0/1]')
+            ->addOption('freshness_threshold',null,InputOption::VALUE_REQUIRED,'#')
+            ->addOption('event_handler',null,InputOption::VALUE_REQUIRED,'command_name')
+            ->addOption('event_handler_enabled',null,InputOption::VALUE_REQUIRED,'[0/1]',1)
+            ->addOption('low_flap_threshold',null,InputOption::VALUE_REQUIRED,'#')
+            ->addOption('high_flap_threshhold',null,InputOption::VALUE_REQUIRED,'#')
+            ->addOption('flap_detection_enabled',null,InputOption::VALUE_REQUIRED,'[0/1]',1)
+            ->addOption('flap_detections_options',null,InputOption::VALUE_REQUIRED,'[o,d,u]')
+            ->addOption('process_pref_data',null,InputOption::VALUE_REQUIRED,'[0/1]',1)
+            ->addOption('retain_status_information',null,InputOption::VALUE_REQUIRED,'[0/1]',1)
+            ->addOption('retain_nonstatus_information',null,InputOption::VALUE_REQUIRED,'[0/1]',1)
+            ->addOption('contacts',null,InputOption::VALUE_REQUIRED,'contacts')
+            ->addOption('contact_groups',null,InputOption::VALUE_REQUIRED,'contact_groups','admins')
+            ->addOption('notification_interval',null,InputOption::VALUE_REQUIRED,'#',0)
+            ->addOption('first_notification_delay',null,InputOption::VALUE_REQUIRED,'#')
+            ->addOption('notification_period',null,InputOption::VALUE_REQUIRED,'timeperiod_name','24x7')
+            ->addOption('notification_options',null,InputOption::VALUE_REQUIRED,'[d,u,r,f,s]','d,u,r')
+            ->addOption('notifications_enabled',null,InputOption::VALUE_REQUIRED,'[0/1]',1)
+            ->addOption('stalking_options',null,InputOption::VALUE_REQUIRED,'[o,d,u]')
+            ->addOption('notes',null,InputOption::VALUE_REQUIRED,'note_string')
+            ->addOption('notes_url',null,InputOption::VALUE_REQUIRED,'url')
+            ->addOption('action_url',null,InputOption::VALUE_REQUIRED,'url')
+            ->addOption('icon_image',null,InputOption::VALUE_REQUIRED,'image_file')
+            ->addOption('icon_image_alt',null,InputOption::VALUE_REQUIRED,'alt_string')
+            ->addOption('vrml_image',null,InputOption::VALUE_REQUIRED,'image_file')
+            ->addOption('statusmap_image',null,InputOption::VALUE_REQUIRED,'image_file')
+            ->addOption('2d_coords',null,InputOption::VALUE_REQUIRED,'x_coord,y_coord')
+            ->addOption('3d_coords',null,InputOption::VALUE_REQUIRED,'x_coord,y_coord.z+coord')
+            ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
       // Required
       do {
-        $host_name = $this->getDialog()->ask($output, '<question>Host Name</question>: ', null);
+        $host_name = $this->getDialog()->ask($output, sprintf('<question>Host Name</question> <comment>(default: %s)</comment>: ',$input->getOption('host_name')), $input->getOption('host_name'));
       } while(!$host_name);
+
       do {
-        $alias = $this->getDialog()->ask($output, '<question>Alias</question>: ', null);
+        $alias = $this->getDialog()->ask($output, sprintf('<question>Alias</question> <comment>(default: %s)</comment>: ',$input->getOption('alias')), $input->getOption('alias'));
       } while(!$alias);
+
       do {
-        $address = $this->getDialog()->ask($output, '<question>Address</question>: ', null);
+        $address = $this->getDialog()->ask($output, sprintf('<question>Address</question> <comment>(default: %s)</comment>: ',$input->getOption('address')), $input->getOption('address'));
       } while(!$address);
+
       do {
-        $max_check_attempts = $this->getDialog()->ask($output, '<question>Max Check Attempts</question> <comment>(default: 10)</comment>: ', 10);
+        $max_check_attempts = $this->getDialog()->ask($output, sprintf('<question>Max Check Attempts</question> <comment>(default: %s)</comment>: ',$input->getOption('max_check_attempts')), $input->getOption('max_check_attempts'));
       } while(!$max_check_attempts);
+
       do {
-        $check_period = $this->getDialog()->ask($output, '<question>Check Period</question> <comment>(defualt: 24x7)</comment>: ', '24x7');
+        $check_period = $this->getDialog()->ask($output, sprintf('<question>Check Period</question> <comment>(defualt: %s)</comment>: ',$input->getOption('check_period')), $input->getOption('check_period'));
       } while(!$check_period);
+
       do {
-        $contacts = $this->getDialog()->ask($output, '<question>Contacts</question>: ', null);
+        $contacts = $this->getDialog()->ask($output, sprintf('<question>Contacts</question> <comment>(default: %s)</comment>: ',$input->getOption('contacts')), $input->getOption('contacts'));
       } while(!$contacts);
+
       do {
-        $contact_group = $this->getDialog()->ask($output, '<question>Contact Group</question> <comment>(default: admins)</comment>: ', 'admins');
-      } while(!$contact_group);
+        $contact_groups = $this->getDialog()->ask($output, sprintf('<question>Contact Groups</question> <comment>(default: %s)</comment>: ',$input->getOption('contact_groups')),$input->getOption('contact_groups'));
+      } while(!$contact_groups);
+
       do {
-        $notification_interval = $this->getDialog()->ask($output, '<question>Notification Interval</question> <comment>(default: 0)</comment>: ', '0');
-      } while(!ctype_digit($notification_interval));
+        $notification_interval = $this->getDialog()->ask($output, sprintf('<question>Notification Interval</question> <comment>(default: %s)</comment>: ',$input->getOption('notification_interval')),$input->getOption('notification_interval'));
+      } while(!is_numeric($notification_interval));
+
       do {
-        $notification_period = $this->getDialog()->ask($output, '<question>Notification Period</question> <comment>(default: 24x7)</comment>: ', '24x7');
+        $notification_period = $this->getDialog()->ask($output, sprintf('<question>Notification Period</question> <comment>(default: %s)</comment>: ',$input->getOption('notification_period')), $input->getOption('notification_period'));
       } while(!$notification_period);
 
       // Optional
-      $display_name = $this->getDialog()->ask($output, sprintf('<question>Display Name</question> <comment>(default: %s)</comment>: ',$host_name), $host_name);
+      $display_nameDefault = $input->getOption('display_name') ? $input->getOption('display_name') : $host_name;
+      $display_name = $this->getDialog()->ask($output, sprintf('<question>Display Name</question> <comment>(default: %s)</comment>: ',$display_nameDefault), $display_nameDefault);
       $parents = $this->getDialog()->ask($output, sprintf('<question>Parents</question> <comment>(default: null)</comment>: '), null);
       $hostgroups = $this->getDialog()->ask($output, sprintf('<question>Hostgroups</question> <comment>(default: null)</comment>: '), null);
       $check_command = $this->getDialog()->ask($output, sprintf('<question>Check Command</question> <comment>(default: check-host-alive)</comment>: '), 'check-host-alive');
@@ -93,7 +147,7 @@ define host{
   max_check_atempts            %max_check_attempts%
   check_period                 %check_period%
   contacts                     %contacts%
-  contact_group                %contact_group%
+  contact_groups               %contact_groups%
   notification_interval        %notification_interval%
   notification_period          %notification_period%
   display_name                 %display_name%
@@ -140,7 +194,7 @@ EOF;
         '%max_check_attempts%'           => $max_check_attempts,
         '%check_period%'                 => $check_period,
         '%contacts%'                     => $contacts,
-        '%contact_group%'                => $contact_group,
+        '%contact_groups%'               => $contact_groups,
         '%notification_interval%'        => $notification_interval,
         '%notification_period%'          => $notification_period,
         '%display_name%'                 => $display_name,
@@ -184,7 +238,13 @@ EOF;
         return(0);
       }
 
-      $output->writeln('let us continue...');
+      $file = $input->getOption('hosts-cfg-path') . '/' . $host_name . '.cfg';
+      if ($this->getDialog()->askConfirmation($output,sprintf('<question>Would you like to write to file "%s"</question>: ',$file),true)){
+        $tmpFile = '/tmp/' . $host_name . '.cfg';
+        \file_put_contents($tmpFile,$hostDefinition);
+        $process = new Process(sprintf('sudo cp %s %s',$tmpFile,$file));
+        $process->run(function($type, $buffer) use($output) {$output->writeln($buffer);});
+      }
     }
 
     /**
