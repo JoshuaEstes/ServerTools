@@ -1,7 +1,6 @@
 {
     "name": "JoshuaEstes/ServerTools",
     "description": "Collection of command line tools to help with server management and maintenance",
-    "version": "0.1.0",
     "keywords": ["server", "management", "maintenance", "apache2"],
     "homepage": "https://github.com/JoshuaEstes/ServerTools",
     "license": "MIT",
