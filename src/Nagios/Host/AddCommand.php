@@ -153,7 +153,7 @@ define host{
   host_name                    %host_name%
   alias                        %alias%
   address                      %address%
-  max_check_atempts            %max_check_attempts%
+  max_check_attempts            %max_check_attempts%
   check_period                 %check_period%
   contacts                     %contacts%
   contact_groups               %contact_groups%
