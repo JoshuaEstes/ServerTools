@@ -264,7 +264,7 @@ EOF;
              * Restart nagios since we copied this file to the directory it belongs
              * in
              */
-            if ($this->getDialog()->askConfirmation($outputput, '<question>Would you like to RESTART nagios</question> <comment>(deafult: yes)</comment>: ', true)) {
+            if ($this->getDialog()->askConfirmation($output, '<question>Would you like to RESTART nagios</question> <comment>(deafult: yes)</comment>: ', true)) {
                 $command = $this->getApplication()->find('nagios:restart');
                 $returnCode = $command->run(new ArrayInput(array('command' => 'nagios:restart')), $output);
             }
