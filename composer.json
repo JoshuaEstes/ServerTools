@@ -20,6 +20,6 @@
         "JoshuaEstes/stApache": "master"
     },
     "autoload": {
-      "psr-0": { "Sf2": ["src/"] }
+      "psr-0": { "": ["src/"] }
     }
 }
