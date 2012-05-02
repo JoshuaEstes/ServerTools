@@ -1,7 +1,7 @@
 {
     "name": "JoshuaEstes/ServerTools",
     "description": "Collection of command line tools to help with server management and maintenance",
-    "keywords": ["server", "management", "maintenance", "apache2"],
+    "keywords": ["server", "management", "maintenance", "apache2","plesk","nagios","symfony2","symfony"],
     "homepage": "https://github.com/JoshuaEstes/ServerTools",
     "license": "MIT",
     "authors": [
