@@ -70,6 +70,10 @@ class CreateCommand extends Command {
             }
             while (!$passwd);
             $cmd[] = sprintf('-passwd "%s"', $passwd);
+            
+            $cmd[] = '-php true';
+            $cmd[] = '-php_handler_type fastcgi';
+            $cmd[] = '-php_safe_mode true';
         }
 
         $command = \implode(" ", $cmd);
