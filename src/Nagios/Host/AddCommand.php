@@ -146,8 +146,8 @@ class AddCommand extends Command {
         if ($active_checks_enabled = $this->getDialog()->ask($output, sprintf('<question>Active Checks Enabled</question> <info>[0/1]</info> <comment>(default: 1)</comment>: '), '1')) {
             $cfg_file[] = sprintf('active_checks_enabled %s', $active_checks_enabled);
         }
-        if ($passive_check_enabled = $this->getDialog()->ask($output, sprintf('<question>Passive Checks Enabled</question> <info>[0/1]</info> <comment>(default: 1)</comment>: '), '1')) {
-            $cfg_file[] = sprintf('passive_check_enabled %s', $passive_check_enabled);
+        if ($passive_checks_enabled = $this->getDialog()->ask($output, sprintf('<question>Passive Checks Enabled</question> <info>[0/1]</info> <comment>(default: 1)</comment>: '), '1')) {
+            $cfg_file[] = sprintf('passive_checks_enabled %s', $passive_checks_enabled);
         }
         if ($obsess_over_host = $this->getDialog()->ask($output, sprintf('<question>Obsess Over Host</question> <info>[0/1]</info> <comment>(default: 1)</comment>: '), '1')) {
             $cfg_file[] = sprintf('obsess_over_host %s', $obsess_over_host);
