@@ -59,7 +59,7 @@ class AddCommand extends Command {
             ->addOption('vrml_image', null, InputOption::VALUE_REQUIRED, 'image_file')
             ->addOption('statusmap_image', null, InputOption::VALUE_REQUIRED, 'image_file')
             ->addOption('2d_coords', null, InputOption::VALUE_REQUIRED, 'x_coord,y_coord')
-            ->addOption('3d_coords', null, InputOption::VALUE_REQUIRED, 'x_coord,y_coord.z+coord')
+            ->addOption('3d_coords', null, InputOption::VALUE_REQUIRED, 'x_coord,y_coord,z_coord')
         ;
     }
 
