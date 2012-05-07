@@ -26,8 +26,8 @@ class AddCommand extends Command {
 
     protected function configure() {
         $this
-            ->setName('nagios:service:add')
-            ->setDescription('Create a host definition')
+            ->setName('nagios:servicegroup:add')
+            ->setDescription('Create a service group definition')
             ->addOption('servicegroup-cfg-path', null, InputOption::VALUE_REQUIRED, 'Path where to write to the file', '/usr/local/nagios/etc/objects/servicegroup')
             // Required
             ->addOption('servicegroup_name', null, InputOption::VALUE_REQUIRED, 'This directive is used to define a short name used to identify the service group.')
