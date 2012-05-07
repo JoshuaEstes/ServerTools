@@ -60,7 +60,7 @@ class AddCommand extends Command {
         if ($members = $this->getDialog()->ask($output, \sprintf('<question>members</question> <comment>(default: %s)</comment>: ', $input->getOption('members')), $input->getOption('members'))) {
             $cfg_file[] = \sprintf('members %s', $members);
         }
-        if ($servicegroup_members = $this->getDialog()->ask($output, \sprintf('<question></question> <comment>(default: %s)</comment>: ', $input->getOption('servicegroup_members')), $input->getOption('servicegroup_members'))) {
+        if ($servicegroup_members = $this->getDialog()->ask($output, \sprintf('<question>servicegroup_members</question> <comment>(default: %s)</comment>: ', $input->getOption('servicegroup_members')), $input->getOption('servicegroup_members'))) {
             $cfg_file[] = \sprintf('servicegroup_members %s', $servicegroup_members);
         }
         if ($notes = $this->getDialog()->ask($output, \sprintf('<question>notes</question> <comment>(default: %s)</comment>: ', $input->getOption('notes')), $input->getOption('notes'))) {
