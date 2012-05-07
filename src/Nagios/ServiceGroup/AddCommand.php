@@ -104,4 +104,12 @@ class AddCommand extends Command {
         }
     }
 
+    /**
+     *
+     * @return Symfony\Component\Console\Helper\DialogHelper
+     */
+    protected function getDialog() {
+        return $this->getHelperSet()->get('dialog');
+    }
+
 }
