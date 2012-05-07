@@ -42,7 +42,7 @@ class AddCommand extends Command {
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
-        $cfg_file = array('define service{');
+        $cfg_file = array('define servicegroup{');
 
         // Required
         do {
