@@ -231,7 +231,7 @@ class AddCommand extends Command {
         /**
          * Place file where it needs to go
          */
-        $file = $input->getOption('service-cfg-path') . '/' . $host_name . '.cfg';
+        $file = $input->getOption('service-cfg-path') . '/' . $host_name . '-' . $check_command . '.cfg';
         if ($this->getDialog()->askConfirmation($output, \sprintf('<question>Would you like to write to file "%s"</question> <comment>(deafult: yes)</comment>: ', $file), true)) {
             $tmpFile = '/tmp/' . \time() . '.cfg';
             \file_put_contents($tmpFile, $serviceDefinition);
