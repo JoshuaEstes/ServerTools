@@ -87,7 +87,7 @@ class AddCommand extends Command {
         $file = $input->getOption('hostgroup-cfg-path') . '/' . $hostgroup_name . '.cfg';
         if ($this->getDialog()->askConfirmation($output, sprintf('<question>Would you like to write to file "%s"</question> <comment>(deafult: yes)</comment>: ', $file), true)) {
             $tmpFile = '/tmp/' . $hostgroup_name . '.cfg';
-            \file_put_contents($tmpFile, $hostDefinition);
+            \file_put_contents($tmpFile, $hostgroupDefinition);
             $process = new Process(sprintf('sudo cp %s %s', $tmpFile, $file));
             $process->run(function($type, $buffer) use($output) {
                     $output->writeln($buffer);
