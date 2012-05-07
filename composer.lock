@@ -1,16 +1,6 @@
 {
-    "hash": "f64a814db308ce459a2aa6e6cdfa4033",
+    "hash": "a38fa1a9041a49662b97a8ecbbe9614b",
     "packages": [
-        {
-            "package": "JoshuaEstes/stApache",
-            "version": "dev-master",
-            "source-reference": "f789bfca9ac52e42cdebfc53d54e9c9ee8c8acd9"
-        },
-        {
-            "package": "JoshuaEstes/stEtc",
-            "version": "dev-master",
-            "source-reference": "607a6d70d79019115a8bc58c5a507dccc8e9306a"
-        },
         {
             "package": "symfony/console",
             "version": "dev-master",
@@ -38,5 +28,7 @@
         }
     ],
     "packages-dev": null,
-    "aliases": []
+    "aliases": [
+
+    ]
 }
