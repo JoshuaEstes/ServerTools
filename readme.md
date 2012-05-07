@@ -14,19 +14,7 @@ Installation
     cd ServerTools
     curl -s http://getcomposer.org/installer | php
     ./composer.phar install
-    chmod +x st
-    ./st
-    sudo ln -s /path/to/st /sbin/st
-
-If you want to allow all users on your system to use this, then symlink
-this to /usr/bin directoy
-
-    sudo ln -s /path/to/st /usr/bin/st
-
-This repo comes with an optional autocompletion script for this tool. If you
-want to have autocompletion, then place the file st-autocompletion.bash in
-either a directory that where the file will get loaded or put the file some
-place and add a few lines in your bashrc to source it.
+    ln -s $HOME/ServerTools/st $HOME/bin/st
 
 Adding more tasks/tools
 -----------------------
