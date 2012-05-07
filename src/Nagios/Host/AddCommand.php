@@ -2,6 +2,19 @@
 
 namespace Nagios\Host;
 
+/**
+ * Description
+ *
+ * @package
+ * @subpackage
+ * @author     Joshua Estes
+ * @copyright  2012
+ * @version    0.1.0
+ * @category
+ * @license
+ *
+ */
+
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
