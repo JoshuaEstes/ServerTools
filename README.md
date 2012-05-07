@@ -1,10 +1,11 @@
 Server Tools
 ============
 
-ServerTools is a tool for developers and sys admins to make better use of their
-time by putting this script in their PATH and allowing the tasks to do the work
-for them. Setting up a vhost file for a new project? Managing a Nagios server?
-The list can go on and on.
+ServerTools is a command line utility that allows a developer to setup a new
+project with little time setting up the extra stuff such as the apache vhost
+commands and such. With this utility placed on various servers, you can ssh in
+to setup apache, nagios, plesk, etc. The list goes on as well as giving you the
+ability to create your own commands.
 
 Installation
 ------------
@@ -23,4 +24,3 @@ Check out https://github.com/JoshuaEstes/stHelloWorld for some help. Also
 check this projects composer.json file to see how I am telling it to use
 that repository. I am going to assume that most of your tools are going
 to be private repositories.
-
