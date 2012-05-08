@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- see http://www.phpunit.de/wiki/Documentation -->
+<phpunit bootstrap="Tests/bootstrap.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="true">
+  <testsuites>
+    <testsuite name="Server Tools Test Suite">
+      <directory>./Tests/</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>
+
