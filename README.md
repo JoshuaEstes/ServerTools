@@ -17,6 +17,14 @@ Installation
     ./composer.phar install
     ln -s $HOME/ServerTools/st $HOME/bin/st
 
+Updating ServerTools
+--------------------
+
+    cd ~/ServerTools
+    git pull origin master
+    rm -rf vendor/*
+    ./composer.phar update
+
 Adding more tasks/tools
 -----------------------
 
