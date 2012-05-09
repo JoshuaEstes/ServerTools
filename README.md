@@ -10,6 +10,7 @@ ability to create your own commands.
 Current Tasks/Commands
 ----------------------
 
+* apache:restart
 * apache:vhost:add
 * etc:hosts:add
 * nagios:contact:add
