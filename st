@@ -4,6 +4,12 @@
 // Make sure that script will continue to run
 set_time_limit(0);
 
+// Let's get our footing so we know where we are at
+define('ST_ROOT_DIR', dirname(__FILE__));
+define('ST_DOCS_DIR', ST_ROOT_DIR . '/docs');
+define('ST_SRC_DIR', ST_ROOT_DIR . '/src');
+define('ST_VENDOR_DIR', ST_ROOT_DIR . '/vendor');
+
 require __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
@@ -14,7 +20,7 @@ $finder = new Finder();
 $iterator = $finder
         ->files()
         ->name('*Command.php')
-        ->in(array(__DIR__ . '/src', __DIR__ . '/vendor'))
+        ->in(array(ST_SRC_DIR, ST_VENDOR_DIR))
         ->exclude('symfony');
 
 // Might be able to place the commands into a config
