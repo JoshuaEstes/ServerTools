@@ -25,11 +25,11 @@ if (!defined('PLESK_BIN')) {
     define('PLESK_BIN', '/usr/local/psa/bin');
 }
 
-class CreateCommand extends Command {
+class AddCommand extends Command {
 
     protected function configure() {
         $this
-            ->setName('plesk:database:create')
+            ->setName('plesk:database:add')
             ->setDescription('Create a new database');
     }
 
