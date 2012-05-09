@@ -1,0 +1,16 @@
+<question>Question Tag</question>
+<info>Info Tag</info>
+<error>Error Tag</error>
+<comment>Comment Tag</comment>
+Normal Text
+
+This template is meant to help document the various tasks that are ran on the
+command line. This file should appear when a user types st help task:name.
+
+This is output to the command line.
+
+You can include this file by adding
+
+    $this->setHelp(\file_get_contents(ST_DOCS_DIR . '/template'))
+
+to your commands configure function.
