@@ -7,6 +7,23 @@ commands and such. With this utility placed on various servers, you can ssh in
 to setup apache, nagios, plesk, etc. The list goes on as well as giving you the
 ability to create your own commands.
 
+Current Tasks/Commands
+----------------------
+
+* apache:vhost:add
+* etc:hosts:add
+* nagios:contact:add
+* nagios:host:add
+* nagios:hostgroup:add
+* nagios:restart
+* nagios:service:add
+* nagios:servicegroup:add
+* plesk:customer:add
+* plesk:database:add
+* plesk:subscription:add
+* sf:init
+* sf2:init
+
 Installation
 ------------
 
