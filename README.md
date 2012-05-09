@@ -1,5 +1,5 @@
-Server Tools
-============
+Server Tools 0.1.0
+==================
 
 ServerTools is a command line utility that allows a developer to setup a new
 project with little time setting up the extra stuff such as the apache vhost
@@ -27,7 +27,55 @@ Updating ServerTools
 Adding more tasks/tools
 -----------------------
 
-Check out https://github.com/JoshuaEstes/stHelloWorld for some help. Also
-check this projects composer.json file to see how I am telling it to use
-that repository. I am going to assume that most of your tools are going
-to be private repositories.
+Let's make a simple hello world task.
+
+    <?php
+    namespace Hello;
+
+    // src/Hello/WorldCommand.php
+
+    use Symfony\Component\Console\Command\Command;
+    use Symfony\Component\Console\Input\InputInterface;
+    use Symfony\Component\Console\Output\OutputInterface;
+
+    class WorldCommand extends Command
+    {
+
+      /**
+       * Configures the current command.
+       */
+      protected function configure(){
+        $this->setName('hello:world')
+          ->setDescription('Tells the world hello');
+      }
+
+      /**
+       * Execute the command
+       *
+       * @param InputInterface $input
+       * @param OutputInterface $output
+       */
+      protected function execute(InputInterface $input, OutputInterface $output) {
+        $output->writeln('Hello World');
+        return 0;
+      }
+    }
+
+And that's all there is to it =) Feel free to take a look at the other tasks and
+see how they are setup.
+
+Testing
+-------
+
+All tests are located in the "Tests" folder and can be run with phpunit. If you
+create a command, then please include a test.
+
+Documentation
+-------------
+
+Documentation is located in the docs folder and is also used to output on the
+command line. There is a template file in the root which you can use. If you
+want to set this as your files help for the command, then just add this code
+snippet to your configure function in your command.
+
+    $this->setHelp(\file_get_contents(ST_DOCS_DIR . '/path/to/file'));
