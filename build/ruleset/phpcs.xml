@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<ruleset name="Symfony1.4">
+ <description>Symfony1.4 coding standard</description>
+
+ <!--
+ Reports errors if the same class or interface name is used in multiple files.
+ -->
+ <rule ref="Generic.Classes.DuplicateClassName" />
+
+ <!--
+ This sniff class detected empty statement.
+ -->
+ <rule ref="Generic.CodeAnalysis.EmptyStatement" />
+
+ <!--
+ Detects for-loops that can be simplified to a while-loop.
+ -->
+ <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
+
+ <!--
+ Detects for-loops that use a function call in the test expression.
+ -->
+ <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+
+ <!--
+ Detects incrementer jumbling in for loops.
+ -->
+ <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+
+ <!--
+ Detects unconditional if- and elseif-statements.
+ -->
+ <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+
+ <!--
+ Detects unnecessary final modifiers inside of final classes.
+ -->
+ <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+
+ <!--
+ Detects unnecessary overriden methods that simply call their parent.
+ -->
+ <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+
+ <!--
+ Warns about TODO comments.
+ -->
+ <rule ref="Generic.Commenting.Todo"/>
+
+ <!--
+ Verifies that inline control statements are not present.
+ @see http://us.php.net/manual/en/control-structures.alternative-syntax.php
+ -->
+<!-- <rule ref="Generic.ControlStructures.InlineControlStructure">
+   <properties>-->
+     <!--
+     If true, an error will be thrown; otherwise a warning.
+     -->
+<!--     <property name="error" value="true" />
+   </properties>
+ </rule>-->
+
+ <!--
+ Checks that end of line characters are correct.
+ -->
+ <rule ref="Generic.Files.LineEndings">
+   <properties>
+     <!--
+     The valid EOL character.
+     -->
+     <property name="eolChar" value="\n" />
+   </properties>
+ </rule>
+
+ <!--
+ Checks all lines in the file, and throws warnings if they are over 80
+ characters in length and errors if they are over 100. Both these figures can be
+ changed by extending this sniff in your own standard.
+ -->
+<!-- <rule ref="Generic.Files.LineLength">
+  <properties>-->
+   <!--
+   The limit that the length of a line must not exceed.
+   Set to zero (0) to disable.
+   -->
+<!--   <property name="absoluteLineLimit" value="100" />-->
+   <!--
+   The limit that the length of a line should not exceed.
+   -->
+<!--   <property name="lineLimit" value="80" />
+  </properties>
+ </rule>-->
+
+ <!--
+ Ensures each statement is on a line by itself.
+ -->
+ <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+
+ <!--
+ Checks alignment of assignments. If there are multiple adjacent assignments, it
+ will check that the equals signs of each assignment are aligned. It will
+ display a warning to advise that the signs should be aligned.
+ -->
+ <rule ref="Generic.Formatting.MultipleStatementAlignment">
+  <properties>
+   <!--
+   If true, an error will be thrown; otherwise a warning.
+   -->
+   <property name="error" value="false" />
+   <!--
+   If true, multi-line assignments are not checked.
+   -->
+   <property name="ignoreMultiLine" value="false" />
+   <!--
+   The maximum amount of padding before the alignment is ignored. If the amount
+   of padding required to align this assignment with the surrounding assignments
+   exceeds this number, the assignment will be ignored and no errors or warnings
+   will be thrown.
+   -->
+   <property name="maxPadding" value="1000" />
+  </properties>
+ </rule>
+
+ <!--
+ Ensures there is no space after cast tokens.
+ -->
+ <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
+
+ <!--
+ Ensures there is a single space after cast tokens.
+ -->
+<!-- <rule ref="Generic.Formatting.NoSpaceAfterCast"/>-->
+
+ <!--
+ Ensures that variables are not passed by reference when calling a function.
+ -->
+ <rule ref="Generic.Functions.CallTimePassByReference" />
+
+ <!--
+ Checks that calls to methods and functions are spaced correctly.
+ -->
+ <rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
+ 
+ <!--
+ Checks that the opening brace of a function is on the line after the function
+ declaration.
+ -->
+<!-- <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>-->
+
+ <!--
+ Checks that the opening brace of a function is on the same line as the function
+ declaration.
+ -->
+ <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
+
+ <!--
+ Checks the cyclomatic complexity (McCabe) for functions.
+ -->
+ <rule ref="Generic.Metrics.CyclomaticComplexity" />
+  <properties>
+   <!--
+   A complexity higer than this value will throw an error.
+   -->
+   <property name="absoluteComplexity" value="20" />
+   <!--
+   A complexity higher than this value will throw a warning.
+   -->
+   <property name="complexity" value="10" />
+  </properties>
+
+ <!--
+ Favor PHP 5 constructor syntax, which uses "function __construct()". Avoid PHP
+ 4 constructor syntax, which uses "function ClassName()".
+ -->
+ <rule ref="Generic.NamingConventions.ConstructorName"/>
+
+ <!--
+ Ensures that constant names are all uppercase.
+ -->
+ <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+
+ <!--
+ Discourages the use of deprecated functions that are kept in PHP for
+ compatibility with older versions.
+ -->
+ <rule ref="Generic.PHP.DeprecatedFunctions" />
+
+ <!--
+ Makes sure that shorthand PHP open tags are not used.
+ -->
+ <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+
+ <!--
+ Discourages the use of alias functions that are kept in PHP for compatibility
+ with older versions. Can be used to forbid the use of any function.
+ -->
+ <rule ref="Generic.PHP.ForbiddenFunctions">
+  <properties>
+   <!--
+   If true, an error will be thrown; otherwise a warning.
+   -->
+   <property name="error" value="true" />
+  </properties>
+ </rule>
+
+ <!--
+ Checks that all uses of true, false and null are lowerrcase.
+ -->
+ <rule ref="Generic.PHP.LowerCaseConstant" />
+
+ <!--
+ Throws an error or warning when any code prefixed with an asperand is
+ encountered.
+ -->
+ <rule ref="Generic.PHP.NoSilencedErrors">
+  <properties>
+   <!--
+   If true, an error will be thrown; otherwise a warning.
+   -->
+   <property name="error" value="false" />
+  </properties>
+ </rule>
+
+ <!--
+ Checks that all uses of TRUE, FALSE and NULL are uppercase.
+ -->
+<!-- <rule ref="Generic.PHP.UpperCaseConstant"/>-->
+
+ <!--
+ Checks that two strings are not concatenated together; suggests using one
+ string instead.
+ -->
+<rule ref="Generic.Strings.UnnecessaryStringConcat">
+  <properties>
+   <!--
+   If true, an error will be thrown; otherwise a warning.
+   -->
+   <property name="error" value="false" />
+  </properties>
+ </rule>
+
+ <!--
+ Throws errors if tabs are used for indentation.
+ -->
+ <rule ref="Generic.WhiteSpace.DisallowTabIndent" />
+
+ <!--
+ Checks that control structures are structured correctly, and their content is
+ indented correctly. This sniff will throw errors if tabs are used for
+ indentation rather than spaces.
+ -->
+ <rule ref="Generic.WhiteSpace.ScopeIndent">
+   <properties>
+     <!--
+     The number of spaces code should be indented.
+     -->
+     <property name="indent" value="4" />
+     <!--
+     Does the indent need to be exactly right. If TRUE, indent needs to be
+     exactly $ident spaces. If FALSE, indent needs to be at least $ident spaces
+     (but can be more).
+     -->
+     <property name="exact" value="false" />
+   </properties>
+ </rule>
+</ruleset>
