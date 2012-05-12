@@ -22,6 +22,8 @@ Vagrant::Config.run do |config|
      chef.cookbooks_path = "./cookbooks"
      chef.add_recipe("apt");
      chef.add_recipe("apache2");
+     chef.add_recipe("php");
+     chef.add_recipe("mysql");
   #   chef.roles_path = "../my-recipes/roles"
   #   chef.data_bags_path = "../my-recipes/data_bags"
   #   chef.add_recipe "mysql"

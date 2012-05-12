@@ -10,3 +10,6 @@
 [submodule "cookbooks/php"]
 	path = cookbooks/php
 	url = git://github.com/opscode-cookbooks/php.git
+[submodule "cookbooks/nagios"]
+	path = cookbooks/nagios
+	url = git://github.com/opscode-cookbooks/nagios.git
