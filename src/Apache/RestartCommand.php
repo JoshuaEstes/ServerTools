@@ -7,8 +7,8 @@ namespace Apache;
  * 
  * @author      Joshua Estes
  * @copyright
- * @package
- * @subpackage
+ * @package     ServerTools
+ * @subpackage  Apache
  * @version
  */
 use Symfony\Component\Console\Command\Command;
@@ -31,37 +31,7 @@ class RestartCommand extends Command
 
   protected function execute(InputInterface $input, OutputInterface $output)
   {
-
-    /**
-     * @todo Check and see if apachectl is installed, check /etc/init.d/apache2,
-     *       and check other ways we can restart apache and not worry about the
-     *       OS
-     */
-    if (PHP_OS == 'Linux' && \is_file('/etc/init.d/apache2'))
-    {
-      $process = new Process('/etc/init.d/apache2 restart');
-    }
-    else
-    {
-      $p = new Process('which apachectl');
-      $p->run();
-      if (\strlen($p->getOutput()) > 0)
-      {
-        $process = new Process('$(which apachectl) -k restart');
-      }
-    }
-
-    if (isset($process))
-    {
-      $process->run(function($type, $buffer) use($output)
-        {
-          $output->writeln($buffer);
-        });
-    }
-    else
-    {
-      $output->writeln('<error>I have no idea how to restart your apache =(</error>');
-    }
+    $this->getHelper('apache')->restart();
   }
 
 }

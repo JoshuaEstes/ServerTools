@@ -88,6 +88,10 @@ Testing
 All tests are located in the "Tests" folder and can be run with phpunit. If you
 create a command, then please include a test.
 
+Be sure that you run:
+
+    ./composer.phar install --dev
+
 Documentation
 -------------
 
