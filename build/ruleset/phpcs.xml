@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Symfony1.4">
- <description>Symfony1.4 coding standard</description>
+<ruleset name="">
+ <description></description>
 
  <!--
  Reports errors if the same class or interface name is used in multiple files.
@@ -145,13 +145,13 @@
  Checks that the opening brace of a function is on the line after the function
  declaration.
  -->
-<!-- <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>-->
+ <rule ref="Generic.Functions.OpeningFunctionBraceBsdAllman"/>
 
  <!--
  Checks that the opening brace of a function is on the same line as the function
  declaration.
  -->
- <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
+<!-- <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />-->
 
  <!--
  Checks the cyclomatic complexity (McCabe) for functions.
@@ -254,7 +254,7 @@
      <!--
      The number of spaces code should be indented.
      -->
-     <property name="indent" value="4" />
+     <property name="indent" value="2" />
      <!--
      Does the indent need to be exactly right. If TRUE, indent needs to be
      exactly $ident spaces. If FALSE, indent needs to be at least $ident spaces

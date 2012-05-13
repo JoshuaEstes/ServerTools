@@ -7,8 +7,8 @@ namespace Apache\Vhost;
  *
  * @author      Joshua Estes
  * @copyright
- * @package
- * @subpackage
+ * @package     ServerTools
+ * @subpackage  Apache
  * @version
  */
 use Symfony\Component\Console\Command\Command;
