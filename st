@@ -33,7 +33,12 @@ foreach ($iterator as $file) {
     /* @var $file \Symfony\Component\Finder\SplFileInfo */
     $class = str_replace(".php","",$file->getRelativePathname());
     $class = str_replace("/", '\\', $class);
-    $commands[] = new $class();
+    // Some systems the first $file in the iterator was returning
+    // some funky result so make sure that the class exists before
+    // we try to create it
+    if (class_exists($class)){
+      $commands[] = new $class();
+    }
 }
 
 $console = new Application("Server Tools", "0.1.0");
