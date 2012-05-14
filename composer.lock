@@ -68,14 +68,14 @@
         {
             "package": "symfony/process",
             "version": "dev-master",
-            "source-reference": "106f2db51cecf2fe5ee59e428b8f4a918c4034fa"
+            "source-reference": "1bc1398d51180fd2aeded9c44f4d7b73bea817cd",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/process",
             "version": "dev-master",
-            "source-reference": "1bc1398d51180fd2aeded9c44f4d7b73bea817cd",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
+            "source-reference": "106f2db51cecf2fe5ee59e428b8f4a918c4034fa"
         },
         {
             "package": "symfony/yaml",
@@ -100,5 +100,9 @@
     "packages-dev": null,
     "aliases": [
 
-    ]
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "mikey179/vfsstream": 20
+    }
 }
