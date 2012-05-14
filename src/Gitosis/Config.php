@@ -22,6 +22,21 @@ class Config {
      * @var string
      */
     protected $config_file;
+    /**
+     *
+     * @var array
+     */
+    protected $groups;
+    /**
+     *
+     * @var array
+     */
+    protected $repos;
+    /**
+     *
+     * @var stdClass
+     */
+    protected $gitosis;
 
     /**
      * @param string $config_file Path to gitosis.conf
@@ -36,6 +51,9 @@ class Config {
      * @return array
      */
     public function getGroups() {
+        if (null !== $this->groups) {
+            return $this->groups;
+        }
         $groups = array();
         $current_group = null;
         $handle = \fopen($this->config_file, 'r');
@@ -68,7 +86,7 @@ class Config {
             }
         }
         \fclose($handle);
-        return $groups;
+        return $this->groups = $groups;
     }
 
     /**
@@ -76,6 +94,9 @@ class Config {
      * @return array
      */
     public function getRepos() {
+        if (null !== $this->repos) {
+            return $repos;
+        }
         $repos = array();
         $current_repo = null;
         $handle = \fopen($this->config_file, 'r');
@@ -113,7 +134,7 @@ class Config {
             }
         }
         \fclose($handle);
-        return $repos;
+        return $this->repos = $repos;
     }
 
     /**
@@ -121,6 +142,9 @@ class Config {
      * @return stdClass
      */
     public function getGitosis() {
+        if (null !== $this->gitosis) {
+            return $this->gitosis;
+        }
         $gitosis = new \stdClass();
         $current_gitosis = $gitosis;
         $handle = \fopen($this->config_file, 'r');
@@ -145,7 +169,48 @@ class Config {
             }
         }
         \fclose($handle);
-        return $gitosis;
+        return $this->gitosis = $gitosis;
+    }
+
+    /**
+     * Add a repo to the gitosis.conf
+     *
+     * @param string $name
+     * @param string $owner
+     * @param string $description
+     * @param array $options
+     */
+    public function addRepo($name, $owner=null, $description=null, $options=array()) {
+        if (null === $this->repos) {
+            $this->getRepos();
+        }
+
+        $repo = new \stdObject();
+        $repo->name = $name;
+        ((null !== $owner) ? $repo->owner = $owner : '');
+        ((null !== $description) ? $repo->description = $description : '');
+        (isset($options['gitweb']) ? $repo->gitweb = $options['gitweb'] : '');
+        (isset($options['daemon']) ? $repo->daemon = $options['daemon'] : '');
+
+        $this->repos[] = $repo;
+    }
+
+    public function addGroup() {
+        if (null === $this->groups) {
+            $this->getGroups();
+        }
+    }
+
+    public function updateRepo() {
+        if (null === $this->repos) {
+            $this->getRepos();
+        }
+    }
+
+    public function updateGroup() {
+        if (null === $this->groups) {
+            $this->getGroups();
+        }
     }
 
     /**
