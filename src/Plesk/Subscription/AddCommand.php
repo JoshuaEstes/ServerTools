@@ -76,6 +76,9 @@ class AddCommand extends Command {
             $cmd[] = '-php_safe_mode true';
         }
 
+        $mail_service = $this->getDialog()->askConfirmation($output, '<question>Enable Mail Service (default: y)</question>: ', true);
+        $cmd[] = sprintf('-mail_service "%s"', $mail_service ? 'true' : 'false');
+
         $command = \implode(" ", $cmd);
         $process = new Process(sprintf('%s/subscription %s', \PLESK_BIN, $command));
         $process->run(function($type, $buffer) use($output) {
