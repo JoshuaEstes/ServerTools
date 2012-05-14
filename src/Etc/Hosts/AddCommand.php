@@ -7,8 +7,8 @@ namespace Etc\Hosts;
  *
  * @author      Joshua Estes
  * @copyright
- * @package
- * @subpackage
+ * @package     ServerTools
+ * @subpackage  Etc
  * @version
  */
 use Symfony\Component\Console\Command\Command;

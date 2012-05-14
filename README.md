@@ -10,6 +10,7 @@ ability to create your own commands.
 Current Tasks/Commands
 ----------------------
 
+* apache:restart
 * apache:vhost:add
 * etc:hosts:add
 * nagios:contact:add
@@ -86,6 +87,10 @@ Testing
 
 All tests are located in the "Tests" folder and can be run with phpunit. If you
 create a command, then please include a test.
+
+Be sure that you run:
+
+    ./composer.phar install --dev
 
 Documentation
 -------------

@@ -5,8 +5,8 @@ namespace Plesk\Customer;
 /**
  * Description
  *
- * @package
- * @subpackage
+ * @package    ServerTools
+ * @subpackage Plesk
  * @author     Joshua Estes
  * @copyright  2012
  * @version    0.1.0

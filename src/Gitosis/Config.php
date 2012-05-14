@@ -5,8 +5,8 @@ namespace Gitosis;
 /**
  * Description
  *
- * @package
- * @subpackage
+ * @package    ServerTools
+ * @subpackage Gitosis
  * @author     Joshua Estes
  * @copyright  2012
  * @version    0.1.0

@@ -15,39 +15,55 @@ use Symfony\Component\Console\Application;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Console\Tester\CommandTester;
 use Etc\Hosts\AddCommand;
+use org\bovigo\vfs\vfsStream;
 
-class AddCommandTest extends \PHPUnit_Framework_TestCase {
+class AddCommandTest extends \PHPUnit_Framework_TestCase
+{
 
-    public function testExecute() {
-        $hostsfile = '/tmp/' . \time();
-        // Create the file
-        $filesystem = new Filesystem();
-        $filesystem->touch($hostsfile);
+  /**
+   * @var  vfsStreamDirectory
+   */
+  private $root;
 
-        $application = new Application();
-        $application->add(new AddCommand());
+  /**
+   * set up test environmemt
+   */
+  public function setUp()
+  {
+    $this->root = vfsStream::setup('exampleDir');
+  }
 
-        $command = $application->find('etc:hosts:add');
-        $commandTester = new CommandTester($command);
-        $commandTester->execute(
-            array(
-                'command' => $command->getName(),
-                '--hostname' => 'test.local',
-                '--hosts-file' => $hostsfile,
-            ),
-            array(
-                'interactive' => false,
+  public function testExecute()
+  {
+    $hostsfile = '/tmp/' . \time();
+    // Create the file
+    $filesystem = new Filesystem();
+    $filesystem->touch($hostsfile);
+
+    $application = new Application();
+    $application->add(new AddCommand());
+
+    $command = $application->find('etc:hosts:add');
+    $commandTester = new CommandTester($command);
+    $commandTester->execute(
+      array(
+        'command' => $command->getName(),
+        '--hostname' => 'test.local',
+        '--hosts-file' => $hostsfile,
+      ),
+      array(
+        'interactive' => false,
 //        'decorated' => true,
-                'verbosity' => true
-            )
-        );
+        'verbosity' => true
+      )
+    );
 
-        $contents = \file_get_contents($hostsfile);
+    $contents = \file_get_contents($hostsfile);
 
-        // remove the file
-        $filesystem->remove($hostsfile);
+    // remove the file
+    $filesystem->remove($hostsfile);
 
-        $this->assertContains("127.0.0.1 test.local", $contents);
-    }
+    $this->assertContains("127.0.0.1 test.local", $contents);
+  }
 
 }

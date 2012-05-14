@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JoshuaEstes/ServerTools" default="build" basedir=".">
+  <description>Build file for JoshuaEstes/ServerTools</description>
+  <target name="build"
+          depends="prepare,lint,phploc,pdepend,phpcpd,phpmd,phpdcd,phpcs,phpcb,phpdoc,phpunit" />
+
+  <!--
+  Clean up the build folder
+  -->
+  <target name="clean">
+    <delete dir="${basedir}/build/api" />
+    <delete dir="${basedir}/build/code-browser" />
+    <delete dir="${basedir}/build/coverage" />
+    <delete dir="${basedir}/build/logs" />
+    <delete dir="${basedir}/build/pdepend" />
+  </target>
+
+  <!--
+  Prepare the build folder
+  -->
+  <target name="prepare" depends="clean">
+    <mkdir dir="${basedir}/build/api" />
+    <mkdir dir="${basedir}/build/code-browser" />
+    <mkdir dir="${basedir}/build/coverage" />
+    <mkdir dir="${basedir}/build/logs" />
+    <mkdir dir="${basedir}/build/pdepend" />
+  </target>
+
+  <!--
+  Syntax Check
+  -->
+  <target name="lint">
+    <apply executable="php" failonerror="true">
+      <arg value="-l" />
+      <fileset dir="${basedir}">
+        <include name="**/*.php" />
+        <include name="**/st" />
+        <exclude name="**/vendor/**" />
+      </fileset>
+    </apply>
+  </target>
+
+  <!--
+  PHPLOC
+  @see https://github.com/sebastianbergmann/phploc
+  -->
+  <target name="phploc">
+    <exec executable="phploc">
+      <arg value="--log-csv" />
+      <arg value="${basedir}/build/logs/phploc.csv" />
+      <arg value="--exclude" />
+      <arg value="${basedir}/vendor" />
+      <arg path="${basedir}" />
+    </exec>
+  </target>
+
+  <!--
+  PHP_Depend
+  @see http://pdepend.org/
+  -->
+  <target name="pdepend">
+    <exec executable="pdepend">
+      <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
+      <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
+      <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
+      <arg value="--ignore=${basedir}/vendor" />
+      <arg path="${basedir}" />
+    </exec>
+  </target>
+
+  <!--
+  PHP Copy/Paste Detector
+  @see https://github.com/sebastianbergmann/phpcpd
+  -->
+  <target name="phpcpd">
+    <exec executable="phpcpd">
+      <arg value="--log-pmd" />
+      <arg value="${basedir}/build/logs/pmd-cpd.xml" />
+      <arg value="--exclude" />
+      <arg value="${basedir}/vendor" />
+      <arg path="${basedir}" />
+    </exec>
+  </target>
+
+  <!--
+  PHP Mess Detector
+  @see http://phpmd.org
+  -->
+  <target name="phpmd">
+    <exec executable="phpmd">
+      <arg path="${basedir}" />
+      <arg value="xml" />
+      <arg value="${basedir}/build/ruleset/phpmd.xml" />
+      <arg value="--reportfile" />
+      <arg value="${basedir}/build/logs/pmd.xml" />
+      <arg value="--exclude" />
+      <arg value="*/vendor/*" />
+    </exec>
+  </target>
+
+  <!--
+  PHP Dead Code Detector
+  @see https://github.com/sebastianbergmann/phpdcd
+  -->
+  <target name="phpdcd">
+    <exec executable="phpdcd">
+      <arg value="--exclude" />
+      <arg value="${basedir}/vendor" />
+      <arg value="${basedir}" />
+    </exec>
+  </target>
+
+  <!--
+  PHP_CodeSniffer
+  @see http://pear.php.net/package/PHP_CodeSniffer
+  -->
+  <target name="phpcs">
+    <exec executable="phpcs">
+      <arg value="--report=checkstyle" />
+      <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
+      <arg value="--standard=${basedir}/build/ruleset/phpcs.xml" />
+      <arg value="--ignore=${basedir}/vendor/*" />
+      <arg path="${basedir}" />
+    </exec>
+  </target>
+
+  <!--
+  PHP_CodeBrowser
+  @see https://github.com/Mayflower/PHP_CodeBrowser
+  -->
+  <target name="phpcb">
+    <exec executable="phpcb">
+      <arg value="--log" />
+      <arg value="${basedir}/build/logs" />
+      <arg value="--source" />
+      <arg value="${basedir}" />
+      <arg value="--exclude" />
+      <arg value="**/vendor/**" />
+      <arg value="--exclude" />
+      <arg value="**/Tests/**" />
+      <arg value="--exclude" />
+      <arg value="**/build/**" />
+      <arg value="--output" />
+      <arg path="${basedir}/build/code-browser" />
+    </exec>
+  </target>
+
+  <!--
+  phpDocumentor
+  @see http://www.phpdoc.org/
+  -->
+  <target name="phpdoc">
+    <exec executable="phpdoc">
+      <arg value="--directory" />
+      <arg value="${basedir}" />
+      <arg value="--ignore" />
+      <arg value="**/vendor/**,**/Tests/*,**/build/*" />
+      <arg value="--target" />
+      <arg path="${basedir}/build/api" />
+    </exec>
+  </target>
+
+  <!--
+  PHP Unit
+  @see https://github.com/sebastianbergmann/phpunit
+  -->
+  <target name="phpunit">
+    <exec executable="phpunit" />
+  </target>
+</project>

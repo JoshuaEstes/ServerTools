@@ -37,5 +37,6 @@ foreach ($iterator as $file) {
 }
 
 $console = new Application("Server Tools", "0.1.0");
+$console->getHelperSet()->set(new Helper\ApacheHelper(new Service\Apache()));
 $console->addCommands($commands);
 $console->run();
