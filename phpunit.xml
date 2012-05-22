@@ -8,7 +8,7 @@
          stopOnFailure="true">
   <testsuites>
     <testsuite name="Server Tools Test Suite">
-      <directory>./Tests/</directory>
+      <directory>./Tests/*</directory>
     </testsuite>
     <logging>
       <log type="coverage-html" target="./build/coverage" title="JoshuaEstes/ServerTools"
