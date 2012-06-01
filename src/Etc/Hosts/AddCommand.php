@@ -45,11 +45,6 @@ class AddCommand extends Command
     {
       throw new \LogicException(sprintf('Could not find the hosts file located at "%s"', $input->getOption('hosts-file')));
     }
-
-    if (!\is_writable($input->getOption('hosts-file')))
-    {
-      throw new \LogicException('You must run this task as root. Try to run this command again, sudo !!');
-    }
   }
 
   /**
@@ -91,8 +86,8 @@ class AddCommand extends Command
       throw new \LogicException('You must either run this command interactive or pass the hostname option.');
     }
 
-    $op = new StreamOutput(fopen($input->getOption('hosts-file'), 'a', false));
-    $op->writeln(sprintf('%s %s', $input->getOption('ip'), $input->getOption('hostname')), 1);
+    $process = new Process(sprintf('echo "%s %s" | sudo tee --append %s', $input->getOption('ip'), $input->getOption('hostname'), $input->getOption('hosts-file')));
+    $process->run(function($type, $buffer) use($output) {$output->writeln($buffer);});
   }
 
   /**
