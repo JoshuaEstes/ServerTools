@@ -43,10 +43,13 @@ class InitCommand extends Command {
           new Process('rm -rf .git/ .gitignore'),
           // Download a new gitignore file
           new Process('curl -s https://raw.github.com/github/gitignore/master/Symfony2.gitignore -o .gitignore'),
+          // Add some more entires in the .gitignore file
+          new Process('echo "composer.phar" >> .gitignore'),
+          new Process('echo "web/bundles" >> .gitignore'),
           // These will replace the commented out umask with an uncomment umask line
-          new Process('cp app/console app/console.bak; sed -e "s/\/\/umask/umask/g" app/console.bak > app/console'),
-          new Process('cp web/app.php web/app.php.bak; sed -e "s/\/\/umask/umask/g" web/app.php.bak > web/app.php'),
-          new Process('cp web/app_dev.php web/app_dev.php.bak; sed -e "s/\/\/umask/umask/g" web/app_dev.php.bak > web/app_dev.php'),
+          new Process('sed -i -e "s/\/\/umask/umask/g" app/console'),
+          new Process('sed -i -e "s/\/\/umask/umask/g" web/app.php'),
+          new Process('sed -i -e "s/\/\/umask/umask/g" web/app_dev.php'),
           // make sure we can write to the cache and logs directories
           new Process('chmod -R 0777 app/cache/ app/logs'),
           // Let's copy the parameters.yml file to a dist so we can ignore this
@@ -55,9 +58,17 @@ class InitCommand extends Command {
           new Process('if [ -z $(which composer.phar) ]; then curl -s http://getcomposer.org/installer | php; chmod +x composer.phar; ./composer.phar -v install; else composer.phar -v install; fi'),
           // Let's get rid of the Acme demo bundle
           new Process('rm -rf src/Acme/'),
+          /**
+           * @todo Remove the templates and just remove what needs to be removed 
+           * @todo Edit other files to remove the demo/acme stuff
+           */
           new Process(sprintf('cp %s/Templates/routing_dev.yml %s/app/config/routing_dev.yml',__DIR__,\getcwd())),
           new Process(sprintf('cp %s/Templates/AppKernel.php %s/app/AppKernel.php',__DIR__,\getcwd())),
           new Process('rm -rf web/bundles/acmedemo'),
+          // Don't need this any more
+          new Process('rm web/config.php'),
+          new Process('rm web/favicon.ico'),
+          new Process('rm web/apple-touch-icon.png'),
           // Let's see if there is anything else we should do last
           new Process('php app/check.php'),
         );
