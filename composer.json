@@ -6,7 +6,8 @@
     "license": "MIT",
     "authors": [
       {
-        "name": "Joshua Estes"
+        "name": "Joshua Estes",
+        "homepage": "http://joshuaestes.me"
       }
     ],
     "require": {

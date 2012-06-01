@@ -59,7 +59,7 @@ class AddCommand extends Command {
   <Directory %DocumentRoot%>
     AllowOverride All
     Allow from All
-  </Directory> 
+  </Directory>
 
 #  ErrorLog /var/log/apache2/%ServerName%-error_log
 #  CustomLog /var/log/apache2/%ServerName%-access_log common
@@ -71,7 +71,7 @@ EOF;
         '%DocumentRoot%' => $DocumentRoot,
         '%DirectoryIndex%' => $DirectoryIndex,
       ));
-      
+
       $output->writeln($VhostFile);
 
       /**
@@ -108,7 +108,7 @@ EOF;
            * This command is part of the JoshuaEstes/stEtc library
            */
           $command = $this->getApplication()->find('etc:hosts:add');
-          $returnCode = $command->run(new ArrayInput(array('command'=>'etc:hosts:add','hostname'=>$ServerName)), $output);
+          $returnCode = $command->run(new ArrayInput(array('command'=>'etc:hosts:add','--hostname'=>$ServerName)), $output);
         }
       } else {
         $output->writeln(sprintf('<comment>%s does not have a hosts file at /etc/hosts, I cannot allow you to update your hosts file.</comment>',PHP_OS));
