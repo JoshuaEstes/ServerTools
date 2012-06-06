@@ -82,19 +82,22 @@ class InitCommand extends Command {
 
         // Ask if user wants to create the parameters.yml file
         if ($this->getDialog()->askConfirmation($output,'<question>Would you like to configure parameters.yml? (default: yes)</question> ', true)){
-          $parameters = Yaml::parse(sprintf("%s/app/config/parameters.yml",\getcwd()));
-          $parameters['parameters']['database_driver'] = $this->getDialog()->ask($output,'<question>Database Driver? (default: pdo_mysql)</question> ','pdo_mysql');
-          $parameters['parameters']['database_host'] = $this->getDialog()->ask($output,'<question>Database Host? (default: 127.0.0.1)</question> ','127.0.0.1');
-          $parameters['parameters']['database_port'] = $this->getDialog()->ask($output,'<question>Database Port? (default: 3306)</question> ','3306');
-          $parameters['parameters']['database_name'] = $this->getDialog()->ask($output,'<question>Database Name? (default: symfony)</question> ','symfony');
-          $parameters['parameters']['database_user'] = $this->getDialog()->ask($output,'<question>Database User? (default: root)</question> ','root');
-          $parameters['parameters']['database_password'] = $this->getDialog()->ask($output,'<question>Database Password? (default: root)</question> ', 'root');
-          $parameters['parameters']['mailer_transport'] = $this->getDialog()->ask($output,'<question>Mailer Transport? (Available: smtp, mail, sendmail, or gmail) (default: sendmail)</question> ', 'sendmail');
-          $parameters['parameters']['mailer_host'] = $this->getDialog()->ask($output,'<question>Mailer Host? (default: localhost)</question> ', 'localhost');
-          $parameters['parameters']['mailer_user'] = $this->getDialog()->ask($output,'<question>Mailer User? (default: null)</question> ', null);
-          $parameters['parameters']['mailer_password'] = $this->getDialog()->ask($output,'<question>Mailer Password? (default: null)</question> ', null);
-          $parameters['parameters']['locale'] = $this->getDialog()->ask($output,'<question>Locale? (default: en)</question> ', 'en');
-          $parameters['parameters']['secret'] = md5(uniqid(rand(),TRUE));
+          do 
+          {
+                $parameters = Yaml::parse(sprintf("%s/app/config/parameters.yml",\getcwd()));
+                $parameters['parameters']['database_driver'] = $this->getDialog()->ask($output,'<question>Database Driver? (default: pdo_mysql)</question> ','pdo_mysql');
+                $parameters['parameters']['database_host'] = $this->getDialog()->ask($output,'<question>Database Host? (default: 127.0.0.1)</question> ','127.0.0.1');
+                $parameters['parameters']['database_port'] = $this->getDialog()->ask($output,'<question>Database Port? (default: 3306)</question> ','3306');
+                $parameters['parameters']['database_name'] = $this->getDialog()->ask($output,'<question>Database Name? (default: symfony)</question> ','symfony');
+                $parameters['parameters']['database_user'] = $this->getDialog()->ask($output,'<question>Database User? (default: root)</question> ','root');
+                $parameters['parameters']['database_password'] = $this->getDialog()->ask($output,'<question>Database Password? (default: root)</question> ', 'root');
+                $parameters['parameters']['mailer_transport'] = $this->getDialog()->ask($output,'<question>Mailer Transport? (Available: smtp, mail, sendmail, or gmail) (default: sendmail)</question> ', 'sendmail');
+                $parameters['parameters']['mailer_host'] = $this->getDialog()->ask($output,'<question>Mailer Host? (default: localhost)</question> ', 'localhost');
+                $parameters['parameters']['mailer_user'] = $this->getDialog()->ask($output,'<question>Mailer User? (default: null)</question> ', null);
+                $parameters['parameters']['mailer_password'] = $this->getDialog()->ask($output,'<question>Mailer Password? (default: null)</question> ', null);
+                $parameters['parameters']['locale'] = $this->getDialog()->ask($output,'<question>Locale? (default: en)</question> ', 'en');
+                $parameters['parameters']['secret'] = md5(uniqid(rand(),TRUE));
+          }while($this->confirmationLoop($output, Yaml::dump($parameters)));
           \file_put_contents('app/config/parameters.yml',Yaml::dump($parameters));
         }
 
@@ -116,6 +119,12 @@ class InitCommand extends Command {
         }
     }
 
+    protected function confirmationLoop($output, $outputText)
+    {
+        $output->writeln($outputText);
+        $confirmation = $this->getDialog()->askConfirmation($output,'<question>Does this look correct? (default: yes)</question> ', true);
+        return !($confirmation);
+    }
     /**
      *
      * @return Symfony\Component\Console\Helper\DialogHelper
