@@ -119,6 +119,15 @@ class InitCommand extends Command {
         }
     }
 
+    /**
+     * ConfirmationLoop gives you the display of the a configuration then asks for confirmation that it is correct.
+     * If not it will rinse and repeat.
+     *
+     * @author Micah Breedlove <micah@blueshamrock.com> <druid628@gmail.com>
+     * @param OutputInterface $output
+     * @param String $outputText
+     * @return boolean
+     */
     protected function confirmationLoop($output, $outputText)
     {
         $output->writeln($outputText);
