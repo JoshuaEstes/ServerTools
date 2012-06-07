@@ -97,7 +97,8 @@ class InitCommand extends Command {
                 $parameters['parameters']['mailer_password'] = $this->getDialog()->ask($output,'<question>Mailer Password? (default: null)</question> ', null);
                 $parameters['parameters']['locale'] = $this->getDialog()->ask($output,'<question>Locale? (default: en)</question> ', 'en');
                 $parameters['parameters']['secret'] = md5(uniqid(rand(),TRUE));
-          }while($this->confirmationLoop($output, Yaml::dump($parameters)));
+                $output->writeln(Yaml::dump($parameters));
+          }while(!($this->getDialog()->askConfirmation($output,'<question>Does this look correct? (default: yes)</question> ', true)));
           \file_put_contents('app/config/parameters.yml',Yaml::dump($parameters));
         }
 
@@ -118,22 +119,7 @@ class InitCommand extends Command {
           $command->run(new ArrayInput($arguments), $output);
         }
     }
-
-    /**
-     * ConfirmationLoop gives you the display of the a configuration then asks for confirmation that it is correct.
-     * If not it will rinse and repeat.
-     *
-     * @author Micah Breedlove <micah@blueshamrock.com> <druid628@gmail.com>
-     * @param OutputInterface $output
-     * @param String $outputText
-     * @return boolean
-     */
-    protected function confirmationLoop($output, $outputText)
-    {
-        $output->writeln($outputText);
-        $confirmation = $this->getDialog()->askConfirmation($output,'<question>Does this look correct? (default: yes)</question> ', true);
-        return !($confirmation);
-    }
+    
     /**
      *
      * @return Symfony\Component\Console\Helper\DialogHelper
