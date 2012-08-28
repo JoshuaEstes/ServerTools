@@ -55,7 +55,7 @@ class InitCommand extends Command {
           // Let's copy the parameters.yml file to a dist so we can ignore this
           new Process('cp app/config/parameters.yml app/config/parameters.yml.dist'),
           // download and install composer, then install all the symfony stuff
-          new Process('if [ -z $(which composer.phar) ]; then curl -s http://getcomposer.org/installer | php; fi; composer.phar -v install;', null, null, null, 900),
+          new Process('if [ -z $(which composer.phar) ]; then curl -s http://getcomposer.org/installer | php; fi; ./composer.phar -v install;', null, null, null, 900),
           // Let's get rid of the Acme demo bundle
           new Process('rm -rf src/Acme/'),
           /**
