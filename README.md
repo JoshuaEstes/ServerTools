@@ -1,4 +1,4 @@
-Server Tools 0.1.0
+Server Tools 2.0.0
 ==================
 
 ServerTools is a command line utility that allows a developer to setup a new

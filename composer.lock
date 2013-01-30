@@ -1,78 +1,240 @@
 {
-    "hash": "b0399dc48bdc4bf98729fc6b376c57ce",
+    "hash": "e031c26dc793ba069af645833f61dd89",
     "packages": [
         {
-            "package": "symfony/console",
+            "name": "symfony/console",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
+            "target-dir": "Symfony/Component/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Console",
+                "reference": "fdb2d9320106926266a0f7a5a97aab7213e11ad6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Console/archive/fdb2d9320106926266a0f7a5a97aab7213e11ad6.zip",
+                "reference": "fdb2d9320106926266a0f7a5a97aab7213e11ad6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-24 15:55:08",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "http://symfony.com"
         },
         {
-            "package": "symfony/console",
+            "name": "symfony/filesystem",
             "version": "dev-master",
-            "source-reference": "22be75777fe18315637abe092de5aa5c7f4ed3cd"
+            "target-dir": "Symfony/Component/Filesystem",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Filesystem",
+                "reference": "v2.2.0-BETA2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Filesystem/archive/v2.2.0-BETA2.zip",
+                "reference": "v2.2.0-BETA2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-17 15:25:59",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
+            "homepage": "http://symfony.com"
         },
         {
-            "package": "symfony/console",
+            "name": "symfony/finder",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
+            "target-dir": "Symfony/Component/Finder",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Finder",
+                "reference": "d33658c34672f48474a669227ca3639fa0b443e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Finder/archive/d33658c34672f48474a669227ca3639fa0b443e7.zip",
+                "reference": "d33658c34672f48474a669227ca3639fa0b443e7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-29 18:42:39",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Finder\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Finder Component",
+            "homepage": "http://symfony.com"
         },
         {
-            "package": "symfony/filesystem",
+            "name": "symfony/process",
             "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
+            "target-dir": "Symfony/Component/Process",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Process",
+                "reference": "v2.2.0-BETA2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Process/archive/v2.2.0-BETA2.zip",
+                "reference": "v2.2.0-BETA2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-17 15:25:59",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Process\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "http://symfony.com"
         },
         {
-            "package": "symfony/filesystem",
+            "name": "symfony/yaml",
             "version": "dev-master",
-            "source-reference": "e1f7c293c029502921d77f914275b411f80ccbca"
-        },
-        {
-            "package": "symfony/finder",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/finder",
-            "version": "dev-master",
-            "source-reference": "9ee9a907afeef52956187e862714a7702ca26590"
-        },
-        {
-            "package": "symfony/process",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/process",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/process",
-            "version": "dev-master",
-            "source-reference": "f4f101fc7c1adb8b157058dcc1715f28f1d53208"
-        },
-        {
-            "package": "symfony/yaml",
-            "version": "dev-master",
-            "source-reference": "49ad500448c17a4b515c8f567dbb540af3cf41ef"
-        },
-        {
-            "package": "symfony/yaml",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/yaml",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
+            "target-dir": "Symfony/Component/Yaml",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Yaml",
+                "reference": "b293027f4030998a752a1ac06e80ae9e6bf6a763"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Yaml/archive/b293027f4030998a752a1ac06e80ae9e6bf6a763.zip",
+                "reference": "b293027f4030998a752a1ac06e80ae9e6bf6a763",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-27 16:49:19",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Yaml\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "http://symfony.com"
         }
     ],
     "packages-dev": null,
@@ -80,7 +242,7 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "mikey179/vfsstream": 20
-    }
+    "stability-flags": [
+
+    ]
 }
