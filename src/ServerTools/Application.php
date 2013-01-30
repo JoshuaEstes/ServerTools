@@ -22,7 +22,7 @@ define('ST_VENDOR_DIR', ST_ROOT_DIR . '/vendor');
 class Application extends BaseApplication
 {
 
-  const VERSION = '0.1.0';
+  const VERSION = '2.0.0';
 
   public function __construct()
   {

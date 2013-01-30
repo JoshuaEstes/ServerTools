@@ -13,17 +13,6 @@ Current Tasks/Commands
 * apache:restart
 * apache:vhost:add
 * etc:hosts:add
-* nagios:contact:add
-* nagios:host:add
-* nagios:hostgroup:add
-* nagios:restart
-* nagios:service:add
-* nagios:servicegroup:add
-* plesk:customer:add
-* plesk:database:add
-* plesk:subscription:add
-* sf:init
-* sf2:init
 
 Installation
 ------------
@@ -91,13 +80,3 @@ create a command, then please include a test.
 Be sure that you run:
 
     ./composer.phar install --dev
-
-Documentation
--------------
-
-Documentation is located in the docs folder and is also used to output on the
-command line. There is a template file in the root which you can use. If you
-want to set this as your files help for the command, then just add this code
-snippet to your configure function in your command.
-
-    $this->setHelp(\file_get_contents(ST_DOCS_DIR . '/path/to/file'));
