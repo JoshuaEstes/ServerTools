@@ -5,7 +5,7 @@ set_time_limit(0);
 
 // Let's get our footing so we know where we are at
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use ServerTools\Application;
 
