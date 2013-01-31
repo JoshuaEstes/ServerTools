@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+set_time_limit(0);
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/AppKernel.php';
+
+use JoshuaEstes\Bundle\ServerToolsBundle\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+
+$kernel      = new AppKernel();
+$application = new Application($kernel);
+$application->run();
