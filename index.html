@@ -1,0 +1,151 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Servertools</title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Servertools</h1>
+    </header>
+    <div id="container">
+      <p class="tagline"></p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/JoshuaEstes/ServerTools/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/JoshuaEstes/ServerTools/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/JoshuaEstes/ServerTools" class="code">View Servertools on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>Server Tools 2.0.0</h1>
+
+<p>ServerTools is a command line utility that allows a developer to setup a new
+project with little time setting up the extra stuff such as the apache vhost
+commands and such. With this utility placed on various servers, you can ssh in
+to setup apache, nagios, plesk, etc. The list goes on as well as giving you the
+ability to create your own commands.</p>
+
+<h2>Current Tasks/Commands</h2>
+
+<ul>
+<li>apache:restart</li>
+<li>apache:vhost:add</li>
+<li>etc:hosts:add</li>
+</ul><h2>Installation</h2>
+
+<pre><code>cd ~
+git clone git://github.com/JoshuaEstes/ServerTools.git
+cd ServerTools
+curl -s http://getcomposer.org/installer | php
+./composer.phar install
+ln -s $HOME/ServerTools/st $HOME/bin/st
+</code></pre>
+
+<h2>Updating ServerTools</h2>
+
+<pre><code>cd ~/ServerTools
+git pull origin master
+./composer.phar update
+</code></pre>
+
+<h2>Adding more tasks/tools</h2>
+
+<p>Let's make a simple hello world task.</p>
+
+<pre><code>&lt;?php
+namespace Hello;
+
+// src/Hello/WorldCommand.php
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class WorldCommand extends Command
+{
+
+  /**
+   * Configures the current command.
+   */
+  protected function configure(){
+    $this-&gt;setName('hello:world')
+      -&gt;setDescription('Tells the world hello');
+  }
+
+  /**
+   * Execute the command
+   *
+   * @param InputInterface $input
+   * @param OutputInterface $output
+   */
+  protected function execute(InputInterface $input, OutputInterface $output) {
+    $output-&gt;writeln('Hello World');
+    return 0;
+  }
+}
+</code></pre>
+
+<p>And that's all there is to it =) Feel free to take a look at the other tasks and
+see how they are setup.</p>
+
+<h2>Testing</h2>
+
+<p>All tests are located in the "Tests" folder and can be run with phpunit. If you
+create a command, then please include a test.</p>
+
+<p>Be sure that you run:</p>
+
+<pre><code>./composer.phar install --dev
+</code></pre>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/JoshuaEstes" class="avatar"><img src="https://secure.gravatar.com/avatar/da409efafbc1b4dd1bcf7249af37a1d1?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="48" height="48"/></a> <a href="https://github.com/JoshuaEstes">JoshuaEstes</a> maintains <a href="https://github.com/JoshuaEstes/ServerTools">Servertools</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/JoshuaEstes/ServerTools/tarball/master" class="tar">tar</a><a href="https://github.com/JoshuaEstes/ServerTools/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-38105022-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+</body>
+</html>
